@@ -1,0 +1,8 @@
+# .pairs - configuration for 'git pair'
+# place in project or home directory
+pairs:
+  sm: Sean Moon; sean
+  sj: Sam John; samantha
+email:
+  prefix: pair
+  domain: kangaroost.com
