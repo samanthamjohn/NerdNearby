@@ -41,6 +41,7 @@ GEM
       rack (< 2, >= 1.1.0)
     faraday_middleware (0.3.2)
       faraday (~> 0.5.4)
+    haml (3.1.1)
     hashie (1.0.0)
     heroku (2.1.4)
       launchy (>= 0.3.2)
@@ -109,6 +110,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  haml
   heroku
   instagram
   rails (= 3.0.7)
