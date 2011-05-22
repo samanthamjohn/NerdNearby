@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:smj2118/quimby.git
+  revision: 83f39d7b8dd331ad6fcaf9dba9920760d6951f34
+  specs:
+    quimby (0.4.3)
+      json
+      typhoeus
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -58,6 +66,7 @@ GEM
     jquery-rails (1.0.6)
       railties (~> 3.0)
       thor (~> 0.14)
+    json (1.5.1)
     launchy (0.4.0)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
@@ -130,6 +139,9 @@ GEM
       multi_json (~> 0.0.5)
       multi_xml (~> 0.2.0)
       simple_oauth (~> 0.1.4)
+    typhoeus (0.2.4)
+      mime-types
+      mime-types
     tzinfo (0.3.27)
 
 PLATFORMS
@@ -140,6 +152,7 @@ DEPENDENCIES
   heroku
   instagram
   jquery-rails
+  quimby!
   rails (= 3.0.7)
   rspec-rails
   ruby-debug19

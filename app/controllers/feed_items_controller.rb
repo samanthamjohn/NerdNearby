@@ -1,6 +1,27 @@
 class FeedItemsController < ApplicationController
   def index
 
+    foursquare = Foursquare::Base.new(ENV["FOURSQUARE_CLIENT_ID"], ENV["FOURSQUARE_CLIENT_SECRET"])
+    foursquare_venues = []
+    foursquare.venues.nearby(ll: "#{params[:lat]}, #{params[:lng]}").map do |venue|
+      distance = venue.json["location"]["distance"]
+      fs_venue = foursquare.venues.find(venue.json["id"])
+      fs_venue.json["tips"]["groups"].first["items"].each do |tip| 
+        time = Time.at(tip["createdAt"].to_i)
+        if time > Time.now - 12.years
+          foursquare_venues.push(
+          {
+            venue: venue.json["name"],
+            distance: distance,
+            time: Time.at(tip["createdAt"].to_i),
+            text: tip["text"],
+            feed_item_type: "foursquare"
+          }
+          )
+        end
+      end
+    end
+
     tweets = Twitter::Search.new.geocode(params[:lat], params[:lng], "1mi").per_page(100).fetch.reject{|tweet| tweet.geo.nil?}.collect do |tweet|
       {
         time: Time.parse(tweet.created_at),
@@ -22,7 +43,7 @@ class FeedItemsController < ApplicationController
       }
     end
 
-    feed_items = (tweets + instagrams).sort{|a, b| a["time"] <=> b["time"] }
+    feed_items = (tweets + instagrams + foursquare_venues).sort{|a, b| a["time"] <=> b["time"] }
 
     render partial: "index", locals: {feed_items: feed_items}, layout: false
 
