@@ -31,6 +31,13 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
 }
+.logo {
+  width: 320px;
+  text-align: center;
+}
+.logo img {
+  margin: auto;
+}
 ol, ul {
   list-style: none;
 }
