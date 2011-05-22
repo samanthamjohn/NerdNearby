@@ -20,7 +20,7 @@ $(function() {
       lat: lat,
       lng: lng},
       function(response) {
-        $(".feed").html(response)
+        $(".feed-items").html(response)
       });
   });
 });

@@ -1,6 +1,10 @@
-%li.instagram
-  .place-name= instagram[:place_name]
-  = image_tag instagram[:image_tag]
-  .checkin-text= instagram[:checkin_text]
-  .time= instagram[:time]
+%li.instagram.image-post
+  .title.place-name
+    %h3
+      = instagram[:checkin_text]||"instagram post"
+  .post-body
+    = image_tag instagram[:image_tag]
+  .checkin-text.caption
+    = instagram[:place_name]
+    = instagram[:time].to_s(:long_ordinal)
 

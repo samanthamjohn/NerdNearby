@@ -1,7 +1,10 @@
-%li.tweet
-  = image_tag tweet[:profile_image]
-  .username @#{tweet[:user]}:&nbsp;
-  .tweet= tweet[:text]
-  .timestamp= tweet[:time]
-  .distance= tweet[:distance]
+%li.tweet.image-post
+  .title.username
+    %h3
+      = "@#{tweet[:user]}"
+  .post-body
+    = image_tag tweet[:profile_image]
+  .caption
+    .tweet= tweet[:text]
+    .timestamp= tweet[:time].to_s(:long_ordinal)
 

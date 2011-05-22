@@ -7,4 +7,7 @@
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
+    %h1
+      = 'nerd <span class="green">[</span>nearby</span><span class="green">]</span>'.html_safe
+    = image_tag 'glasses.png'
     = yield

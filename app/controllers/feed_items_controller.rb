@@ -4,14 +4,14 @@ class FeedItemsController < ApplicationController
     tweets = Twitter::Search.new.geocode(params[:lat], params[:lng], "1mi").per_page(100).fetch.reject{|tweet| tweet.geo.nil?}.collect do |tweet|
       {
         time: Time.parse(tweet.created_at),
-        profile_image: tweet.profile_image_url,
+        profile_image: tweet.profile_image_url.sub(/_normal\.jpg/, "_reasonably_small.jpg"),
         text: tweet.text,
         user: tweet.from_user,
         distance: tweet.geo.try(:coordinates),
         feed_item_type: "tweet"
       }
     end
-
+    
     instagrams = Instagram.media_search(params[:lat], params[:lng]).collect do |instagram|
       {
         time: Time.at(instagram.created_time.to_i),
