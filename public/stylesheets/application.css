@@ -111,6 +111,15 @@ table {
   padding-left: 145px;
 }
 
+body {
+  width: 100%;
+}
+
+#parapper.wrapper {
+  width: 320px;
+  margin: auto;
+}
+
 @font-face {
     font-family: 'MuseoSlab500';
     src: url('/Museo_Slab_500-webfont.eot');
