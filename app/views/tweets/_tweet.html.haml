@@ -7,5 +7,5 @@
     = image_tag tweet[:profile_image]
   .caption
     .tweet= tweet[:text]
-    .timestamp= tweet[:time].to_s(:long_ordinal)
+    .timestamp= tweet[:time].strftime("%A %I:%m %p")
 

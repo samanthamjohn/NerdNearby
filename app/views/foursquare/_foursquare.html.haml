@@ -5,5 +5,5 @@
       = tip[:venue]
   .caption
     .text= tip[:text]
-    .time= tip[:time].to_s(:long_ordinal)
+    .time= tip[:time].strftime("%A %I:%m %p")
 
