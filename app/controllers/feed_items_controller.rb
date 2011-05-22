@@ -21,6 +21,7 @@ class FeedItemsController < ApplicationController
         # end
       # end
     # end
+    foursquare_venues = []
 
     tweets = Twitter::Search.new.geocode(params[:lat], params[:lng], "1mi").per_page(50).fetch.reject{|tweet| tweet.geo.nil?}.reject{|tweet| tweet.text.first == "@"}.collect do |tweet|
       {
