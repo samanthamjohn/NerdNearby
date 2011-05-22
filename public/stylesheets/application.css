@@ -58,7 +58,7 @@ table {
   position: absolute;
   z-index: 999;
   width: 310px;
-  height: 600px;
+  height: 200px;
 }
 
 #map_canvas {
@@ -109,6 +109,11 @@ table {
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: 140px;
+}
+
+.twitter-share-button {
+  padding-top: 10px;
+  padding-left: 116px;
 }
 
 body {
