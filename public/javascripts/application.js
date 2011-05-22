@@ -16,18 +16,11 @@ $(function() {
 
     var map = new google.maps.Map($("#map_canvas").get(0), myOptions);
 
-    $.get('instagrams', {
+    $.get('feed_items', {
       lat: lat,
       lng: lng},
       function(response) {
         $(".feed").html(response)
-      });
-
-    $.get('tweets', {
-      lat: lat,
-      lng: lng},
-      function(response) {
-        $(".feed").append(response)
       });
   });
 });
