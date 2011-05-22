@@ -46,6 +46,14 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.overlay {
+  position: absolute;
+  z-index: 999;
+  width: 320px;
+  height: 600px;
+}
+
 #map_canvas {
   height: 320px;
   width: 320px;
@@ -76,15 +84,13 @@ table {
   background-color: #ececec;
 }
 
-.feed-items .post-body, .feed-items .caption {
+.feed-items .post-body, .feed-items .caption, #map_canvas {
   margin: 15px;
 }
 
-.feed-items {
-
-  width: 290px;
+.feed-items, #map_canvas {
+  width: 300px;
 }
-
 
 @font-face {
     font-family: 'MuseoSlab500';

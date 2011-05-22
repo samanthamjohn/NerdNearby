@@ -7,14 +7,19 @@ $(function() {
 
     var latlng = new google.maps.LatLng(lat,lng);
     var myOptions = {
-      zoom: 11,
+      zoom: 14,
       center: latlng,
       disableDefaultUI: true,
-      draggable : false,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
     var map = new google.maps.Map($("#map_canvas").get(0), myOptions);
+
+    var marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+      title: "You are here"
+    });
 
     $.get('feed_items', {
       lat: lat,
