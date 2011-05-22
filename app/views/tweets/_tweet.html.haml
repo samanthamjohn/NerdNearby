@@ -1,6 +1,7 @@
 %li.tweet.image-post
   .title.username
     %h3
+      = image_tag "twitterfavicon.png"
       = "@#{tweet[:user]}"
   .post-body
     = image_tag tweet[:profile_image]

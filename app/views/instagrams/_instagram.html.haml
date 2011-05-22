@@ -1,6 +1,7 @@
 %li.instagram.image-post
   .title.place-name
     %h3
+      = image_tag "instagramfavicon.png"
       = instagram[:checkin_text]||"instagram post"
   .post-body
     = image_tag instagram[:image_tag]

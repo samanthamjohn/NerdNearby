@@ -65,7 +65,7 @@ table {
   height: 140px;
 }
 
-.feed-items img {
+.feed-items .post-body img {
   max-width: 290px;
   position: relative;
   top: -70px;
@@ -118,6 +118,11 @@ body {
 
 .image-post .caption {
   margin-top: -70px;
+  padding-bottom: 20px;
+}
+
+.foursquare.image-post .caption {
+  margin-top: 10px;
   padding-bottom: 20px;
 }
 

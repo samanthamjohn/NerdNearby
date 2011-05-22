@@ -1,6 +1,9 @@
-%li.foursquare
-  .venue= tip[:venue]
-  .distance= tip[:distance]
-  .time= tip[:time]
-  .text= tip[:text]
+%li.foursquare.image-post
+  .title.venue
+    %h3
+      = image_tag "foursquarefavicon.png"
+      = tip[:venue]
+  .caption
+    .text= tip[:text]
+    .time= tip[:time].to_s(:long_ordinal)
 
