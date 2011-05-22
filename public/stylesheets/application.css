@@ -103,6 +103,14 @@ table {
   width: 320px;
 }
 
+#spinner {
+  width: 320px;
+  display: block;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 145px;
+}
+
 @font-face {
     font-family: 'MuseoSlab500';
     src: url('/Museo_Slab_500-webfont.eot');

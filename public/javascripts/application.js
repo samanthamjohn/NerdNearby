@@ -14,7 +14,6 @@ $(function() {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-
     $.get('feed_items', {
       lat: lat,
       lng: lng},
