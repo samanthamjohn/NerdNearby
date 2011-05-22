@@ -52,8 +52,7 @@ class FeedItemsController < ApplicationController
       }
     end
 
-    feed_items = (tweets + instagrams + foursquare_venues)
-    feed_items.sort!{|a, b| b[:time] <=> a[:time] }
+    feed_items = (tweets + instagrams + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
 
     render partial: "index", locals: {feed_items: feed_items}, layout: false
 
