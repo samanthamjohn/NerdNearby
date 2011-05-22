@@ -94,9 +94,14 @@ table {
   margin: 15px;
 }
 
-.feed-items, #map_canvas {
+.feed-items {
+  width: 320px;
+}
+#map_canvas {
   width: 300px;
 }
+
+
 
 @font-face {
     font-family: 'MuseoSlab500';
