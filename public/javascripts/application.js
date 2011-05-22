@@ -1,6 +1,4 @@
 $(function() {
-  $("#map_canvas").width("500px");
-  $("#map_canvas").height("500px");
 
   navigator.geolocation.getCurrentPosition(function(position) {
 
@@ -11,6 +9,7 @@ $(function() {
     var myOptions = {
       zoom: 11,
       center: latlng,
+      disableDefaultUI: true,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
