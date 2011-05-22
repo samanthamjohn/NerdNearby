@@ -63,6 +63,11 @@ table {
 
 #map_canvas {
   height: 140px;
+  margin-left: 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 5px solid #ececec;
+  width: 310px;
 }
 
 .feed-items .post-body img {
@@ -90,18 +95,13 @@ table {
   background-color: #ececec;
 }
 
-.feed-items .post-body, .feed-items .caption, #map_canvas {
+.feed-items .post-body, .feed-items .caption {
   margin: 15px;
 }
 
 .feed-items {
   width: 320px;
 }
-#map_canvas {
-  width: 300px;
-}
-
-
 
 @font-face {
     font-family: 'MuseoSlab500';
