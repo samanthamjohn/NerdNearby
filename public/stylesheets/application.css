@@ -136,6 +136,9 @@ body {
   font-family: 'MuseoSlab500';
 }
 
+.desc {
+  text-align: center;
+}
 .image-post .caption {
   margin-top: -70px;
   padding-bottom: 20px;

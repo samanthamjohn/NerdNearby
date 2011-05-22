@@ -9,4 +9,10 @@
     %meta{name:"viewport", content: "initial-scale=1.0, user-scalable=no"}
   %body
     #parapper.wrapper
+      .logo
+        %h1
+          = 'nerd <span class="green">[</span>nearby</span><span class="green">]</span>'.html_safe
+        = image_tag 'glasses.png'
+
       = yield
+      .desc Reach us on twitter: @jocelynleavitt, @samj0hn, @seanmoon and @evan_farrar - see if you can guess our names!
