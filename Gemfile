@@ -5,7 +5,7 @@ gem 'heroku'
 gem 'instagram'
 gem 'haml'
 gem "jquery-rails"
-gem 'quimby', require: 'foursquare', git: "git@github.com:smj2118/quimby.git"
+gem 'quimby', require: 'foursquare', git: "git://github.com/smj2118/quimby.git"
 gem 'twitter'
 
 # Bundle edge Rails instead:
