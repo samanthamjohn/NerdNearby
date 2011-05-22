@@ -6,7 +6,7 @@ class FeedItemsController < ApplicationController
     foursquare.venues.nearby(ll: "#{params[:lat]}, #{params[:lng]}").map do |venue|
       distance = venue.json["location"]["distance"]
       fs_venue = foursquare.venues.find(venue.json["id"])
-      fs_venue.json["tips"]["groups"].first["items"].each do |tip| 
+      fs_venue.json["tips"]["groups"].first["items"].each do |tip|
         time = Time.at(tip["createdAt"].to_i)
         if time > Time.now - 12.years
           foursquare_venues.push(
@@ -32,7 +32,7 @@ class FeedItemsController < ApplicationController
         feed_item_type: "tweet"
       }
     end
-    
+
     instagrams = Instagram.media_search(params[:lat], params[:lng]).collect do |instagram|
       {
         time: Time.at(instagram.created_time.to_i),
@@ -43,7 +43,8 @@ class FeedItemsController < ApplicationController
       }
     end
 
-    feed_items = (tweets + instagrams + foursquare_venues).sort{|a, b| a["time"] <=> b["time"] }
+    feed_items = (tweets + instagrams + foursquare_venues)
+    feed_items.sort!{|a, b| b[:time] <=> a[:time] }
 
     render partial: "index", locals: {feed_items: feed_items}, layout: false
 
