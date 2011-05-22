@@ -1,26 +1,26 @@
 class FeedItemsController < ApplicationController
   def index
 
-    foursquare = Foursquare::Base.new(ENV["FOURSQUARE_CLIENT_ID"], ENV["FOURSQUARE_CLIENT_SECRET"])
-    foursquare_venues = []
-    foursquare.venues.nearby(ll: "#{params[:lat]}, #{params[:lng]}").map do |venue|
-      distance = venue.json["location"]["distance"]
-      fs_venue = foursquare.venues.find(venue.json["id"])
-      fs_venue.json["tips"]["groups"].first["items"].each do |tip|
-        time = Time.at(tip["createdAt"].to_i)
-        if time > Time.now - 12.years
-          foursquare_venues.push(
-          {
-            venue: venue.json["name"],
-            distance: distance,
-            time: Time.at(tip["createdAt"].to_i),
-            text: tip["text"],
-            feed_item_type: "foursquare"
-          }
-          )
-        end
-      end
-    end
+    # foursquare = Foursquare::Base.new(ENV["FOURSQUARE_CLIENT_ID"], ENV["FOURSQUARE_CLIENT_SECRET"])
+    # foursquare_venues = []
+    # foursquare.venues.nearby(ll: "#{params[:lat]}, #{params[:lng]}").map do |venue|
+      # distance = venue.json["location"]["distance"]
+      # fs_venue = foursquare.venues.find(venue.json["id"])
+      # fs_venue.json["tips"]["groups"].first["items"].each do |tip|
+        # time = Time.at(tip["createdAt"].to_i)
+        # if time > Time.now - 12.years
+          # foursquare_venues.push(
+          # {
+            # venue: venue.json["name"],
+            # distance: distance,
+            # time: Time.at(tip["createdAt"].to_i),
+            # text: tip["text"],
+            # feed_item_type: "foursquare"
+          # }
+          # )
+        # end
+      # end
+    # end
 
     tweets = Twitter::Search.new.geocode(params[:lat], params[:lng], "1mi").per_page(50).fetch.reject{|tweet| tweet.geo.nil?}.reject{|tweet| tweet.text.first == "@"}.collect do |tweet|
       {
