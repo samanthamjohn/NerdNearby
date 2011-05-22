@@ -10,6 +10,7 @@ $(function() {
       zoom: 11,
       center: latlng,
       disableDefaultUI: true,
+      draggable : false,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
