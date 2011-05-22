@@ -55,8 +55,7 @@ table {
 }
 
 #map_canvas {
-  height: 320px;
-  width: 320px;
+  height: 140px;
 }
 
 .feed-items img {
