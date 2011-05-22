@@ -1,5 +1,7 @@
+
 class InstagramsController < ApplicationController
   def index
-    @instagram = Instagram.location_search(lat, long)
+    instagrams = Instagram.media_search(params[:lat], params[:lng])
+    render partial: "index", locals: {instagrams: instagrams}, layout: false
   end
 end

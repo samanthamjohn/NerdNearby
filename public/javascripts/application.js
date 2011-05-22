@@ -9,11 +9,18 @@ $(function() {
 
     var latlng = new google.maps.LatLng(lat,lng);
     var myOptions = {
-      zoom: 8,
+      zoom: 11,
       center: latlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
     var map = new google.maps.Map($("#map_canvas").get(0), myOptions);
+
+    $.get('instagrams', {
+      lat: lat,
+      lng: lng},
+      function(response) {
+        $(".feed").html(response)
+      });
   });
 });

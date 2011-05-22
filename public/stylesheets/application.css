@@ -1,0 +1,17 @@
+.instagrams img{
+  max-width: 300px;
+  margin: auto;
+}
+
+.instagrams ul{
+  list-style: none;
+}
+.instagrams li {
+  text-align: center;
+  display: block;
+  border: 10px solid white;
+  background: gray;
+  width: 400px;
+  padding: 10px;
+  float: left;
+}

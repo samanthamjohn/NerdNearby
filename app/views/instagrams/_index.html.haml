@@ -1,0 +1,13 @@
+.instagrams
+  %ul
+    - instagrams.each do |instagram|
+      %li
+        = image_tag instagram.images.low_resolution.url
+        .checkin-text
+          = instagram.caption.try(:text)
+  %ul
+    - instagrams.each do |instagram|
+      %li
+        = image_tag instagram.images.low_resolution.url
+        .checkin-text
+          = instagram.caption.try(:text)
