@@ -5,6 +5,7 @@ gem 'heroku'
 gem 'instagram'
 gem 'haml'
 gem "jquery-rails"
+gem 'twitter'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

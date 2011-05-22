@@ -22,5 +22,12 @@ $(function() {
       function(response) {
         $(".feed").html(response)
       });
+
+    $.get('tweets', {
+      lat: lat,
+      lng: lng},
+      function(response) {
+        $(".feed").append(response)
+      });
   });
 });

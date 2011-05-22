@@ -1,0 +1,10 @@
+.tweets
+  %ul
+    - tweets.each do |tweet|
+      %li
+        = image_tag tweet.profile_image_url
+        .username @#{tweet.from_user}: 
+        .tweet= tweet.text
+        .timestamp= tweet.created_at # FIXME make this EST rather than UTC
+        .distance= tweet.geo.try(:coordinates)
+
