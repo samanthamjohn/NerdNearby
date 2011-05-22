@@ -138,6 +138,7 @@ body {
 
 .desc {
   text-align: center;
+  width: 310px;
 }
 .image-post .caption {
   margin-top: -70px;
