@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.7'
 gem 'heroku'
 gem 'instagram'
+gem 'flickraw'
 gem 'haml'
 gem "jquery-rails"
 gem 'quimby', require: 'foursquare', git: "git://github.com/smj2118/quimby.git"

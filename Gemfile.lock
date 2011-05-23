@@ -51,6 +51,8 @@ GEM
       rack (< 2, >= 1.1.0)
     faraday_middleware (0.3.2)
       faraday (~> 0.5.4)
+    flickraw (0.8.4)
+      json (>= 1.1.1)
     haml (3.1.1)
     hashie (1.0.0)
     heroku (2.1.4)
@@ -148,6 +150,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  flickraw
   haml
   heroku
   instagram

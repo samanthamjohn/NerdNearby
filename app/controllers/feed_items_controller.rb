@@ -23,7 +23,7 @@ class FeedItemsController < ApplicationController
     # end
     foursquare_venues = []
 
-    tweets = Twitter::Search.new.geocode(params[:lat], params[:lng], "1mi").per_page(100).fetch.reject{|tweet| tweet.geo.nil?}.reject{|tweet| tweet.text.first == "@"}.try(:collect) do |tweet|
+    tweets = Twitter::Search.new.geocode(params[:lat], params[:lng], "1mi").per_page(50).fetch.reject{|tweet| tweet.geo.nil?}.reject{|tweet| tweet.text.first == "@"}.try(:collect) do |tweet|
       {
         time: Time.parse(tweet.created_at),
         profile_image: tweet.profile_image_url.sub(/_normal\.jpg/, "_reasonably_small.jpg"),
@@ -41,11 +41,30 @@ class FeedItemsController < ApplicationController
         image_tag: instagram.images.low_resolution.url,
         place_name: instagram.location.name,
         checkin_text: instagram.caption.try(:text),
-        feed_item_type: "instagram"
+        feed_item_type: "photo"
       }
     end
 
-    feed_items = (tweets + instagrams + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
+    args = {}
+    radius = 0.014
+    args[:bbox] = "#{params[:lng].to_f - radius},#{params[:lat].to_f - radius},#{params[:lng].to_f + radius},#{params[:lat].to_f + radius}"
+    args[:min_taken_date] = Time.now - 1.days
+    args[:max_taken_date] = Time.now
+    args[:accuracy] = 11
+    flickr_pictures = flickr.photos.search(args).collect do |flickr_photo|
+      # info = flickr.photos.getInfo({photo_id: flickr_photo.id, secret: flickr_photo.secret})
+      # time: Time.parse(info.dates.try(:taken))
+      {
+        image_tag: FlickRaw.url(flickr_photo),
+        feed_item_type: "photo",
+        checkin_text: "flickr",
+        place_name: flickr_photo.title,
+        time: Time.now - (rand(60)).minutes
+      }
+    end
+    flickr_pictures ||= []
+
+    feed_items = (tweets + instagrams + foursquare_venues + flickr_pictures).sort{|a, b| b[:time] <=> a[:time] }
 
     render partial: "index", locals: {feed_items: feed_items}, layout: false
 
