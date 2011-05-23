@@ -23,7 +23,7 @@ class FeedItemsController < ApplicationController
     # end
     foursquare_venues = []
 
-    tweets = Twitter::Search.new.geocode(params[:lat], params[:lng], "1mi").per_page(50).fetch.reject{|tweet| tweet.geo.nil?}.reject{|tweet| tweet.text.first == "@"}.collect do |tweet|
+    tweets = Twitter::Search.new.geocode(params[:lat], params[:lng], "1mi").per_page(50).fetch.reject{|tweet| tweet.geo.nil?}.reject{|tweet| tweet.text.first == "@"}.try(:collect) do |tweet|
       {
         time: Time.parse(tweet.created_at),
         profile_image: tweet.profile_image_url.sub(/_normal\.jpg/, "_reasonably_small.jpg"),
@@ -33,6 +33,7 @@ class FeedItemsController < ApplicationController
         feed_item_type: "tweet"
       }
     end
+    tweets ||= []
 
     instagrams = Instagram.media_search(params[:lat], params[:lng]).collect do |instagram|
       {
