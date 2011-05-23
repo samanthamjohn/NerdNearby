@@ -7,5 +7,5 @@
     = image_tag instagram[:image_tag]
   .checkin-text.caption
     = instagram[:place_name]
-    = instagram[:time].strftime("%A %I:%m %p")
+    = pretty_time(instagram[:time])
 

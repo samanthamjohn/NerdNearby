@@ -5,5 +5,5 @@
       = tip[:venue]
   .caption
     .text= tip[:text]
-    .time= tip[:time].strftime("%A %I:%m %p")
+    .time= pretty_time(tip[:time])
 
