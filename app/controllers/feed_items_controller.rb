@@ -57,8 +57,7 @@ class FeedItemsController < ApplicationController
       {
         image_tag: FlickRaw.url(flickr_photo),
         feed_item_type: "flickr",
-        checkin_text: "flickr",
-        place_name: flickr_photo.title,
+        checkin_text: flickr_photo.title,
         time: Time.now - (rand(60)).minutes
       }
     end
