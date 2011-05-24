@@ -165,7 +165,7 @@ h1 .green {
 .share .facebook {
   float: left;
   width: 50px;
-  padding: 20px;
+  padding-left: 20px;
 }
 .share .twitter {
   float: left;
