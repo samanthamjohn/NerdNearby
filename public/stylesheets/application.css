@@ -171,3 +171,7 @@ h1 .green {
 .share .twitter {
   float: left;
 }
+
+html {
+  overflow-x: hidden;
+}
