@@ -64,6 +64,7 @@ class FeedItemsController < ApplicationController
     flickr_pictures ||= []
 
     feed_items = (tweets + instagrams + foursquare_venues + flickr_pictures).sort{|a, b| b[:time] <=> a[:time] }
+    feed_items = feed_items[0..49]
 
     render partial: "index", locals: {feed_items: feed_items}, layout: false
 
