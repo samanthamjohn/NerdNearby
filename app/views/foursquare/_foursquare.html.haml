@@ -4,6 +4,6 @@
       = image_tag "foursquarefavicon.png"
       = tip[:venue]
   .caption
-    .text= tip[:text]
+    .text= raw(tip[:text])
     .time= pretty_time(tip[:time])
 

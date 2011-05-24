@@ -6,6 +6,6 @@
   .post-body
     = image_tag tweet[:profile_image]
   .caption
-    .tweet= tweet[:text]
+    .tweet= raw(tweet[:text])
     .timestamp= pretty_time(tweet[:time])
 

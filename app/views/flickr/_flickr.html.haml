@@ -5,7 +5,7 @@
       - if instagram[:checkin_text].blank?
         flickr post
       - else
-        = instagram[:checkin_text]
+        = raw(instagram[:checkin_text])
   .post-body
     = image_tag instagram[:image_tag]
   .checkin-text.caption
