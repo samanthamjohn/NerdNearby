@@ -101,6 +101,7 @@ table {
 
 .feed-items {
   width: 310px;
+  overflow: hidden;
 }
 
 #spinner {
