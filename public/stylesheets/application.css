@@ -111,11 +111,6 @@ table {
   padding-left: 140px;
 }
 
-.twitter-share-button {
-  padding-top: 10px;
-  padding-left: 116px;
-}
-
 body {
   width: 100%;
 }
@@ -161,4 +156,17 @@ h1{
 
 h1 .green {
   color: #bfd73b;
+}
+
+.share {
+  padding: 20px 20px 100px 95px;
+}
+
+.share .facebook {
+  float: left;
+  width: 50px;
+  padding: 20px;
+}
+.share .twitter {
+  float: left;
 }
