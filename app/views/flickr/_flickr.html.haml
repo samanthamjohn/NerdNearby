@@ -1,0 +1,11 @@
+%li.instagram.image-post
+  .title.place-name
+    %h3
+      = image_tag "flickrfavicon.png"
+      = instagram[:checkin_text]||"instagram post"
+  .post-body
+    = image_tag instagram[:image_tag]
+  .checkin-text.caption
+    = instagram[:place_name]
+    = pretty_time(instagram[:time])
+

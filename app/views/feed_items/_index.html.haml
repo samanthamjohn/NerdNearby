@@ -3,8 +3,9 @@
     - feed_items.each do |feed_item|
       - if(feed_item[:feed_item_type] == "tweet")
         = render partial: "tweets/tweet", locals: {tweet: feed_item}
-      - elsif(feed_item[:feed_item_type] == 'photo')
+      - elsif(feed_item[:feed_item_type] == 'instagram')
         = render partial: "instagrams/instagram", locals: {instagram: feed_item}
       - elsif(feed_item[:feed_item_type] == 'foursquare')
         = render partial: "foursquare/foursquare", locals: {tip: feed_item}
-
+      - elsif(feed_item[:feed_item_type] == 'flickr')
+        = render partial: "flickr/flickr", locals: {instagram: feed_item}

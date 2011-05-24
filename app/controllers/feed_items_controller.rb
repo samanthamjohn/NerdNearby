@@ -41,7 +41,7 @@ class FeedItemsController < ApplicationController
         image_tag: instagram.images.low_resolution.url,
         place_name: instagram.location.name,
         checkin_text: instagram.caption.try(:text),
-        feed_item_type: "photo"
+        feed_item_type: "instagram"
       }
     end
 
@@ -56,7 +56,7 @@ class FeedItemsController < ApplicationController
       # time: Time.parse(info.dates.try(:taken))
       {
         image_tag: FlickRaw.url(flickr_photo),
-        feed_item_type: "photo",
+        feed_item_type: "flickr",
         checkin_text: "flickr",
         place_name: flickr_photo.title,
         time: Time.now - (rand(60)).minutes
