@@ -185,6 +185,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capybara
   cucumber-rails
   factory_girl
   flickraw
