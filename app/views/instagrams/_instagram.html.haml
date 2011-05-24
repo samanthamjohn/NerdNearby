@@ -2,7 +2,10 @@
   .title.place-name
     %h3
       = image_tag "instagramfavicon.png"
-      = raw(instagram[:checkin_text])||"instagram post"
+      - if instagram[:checkin_text].blank?
+        = "instagram post"
+      - else
+        = raw(instagram[:checkin_text])
   .post-body
     = image_tag instagram[:image_tag]
   .checkin-text.caption
