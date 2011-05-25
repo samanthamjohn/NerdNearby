@@ -42,6 +42,7 @@ class FeedItemsController < ApplicationController
         image_tag: instagram.images.low_resolution.url,
         place_name: instagram.location.name,
         checkin_text: instagram.caption.try(:text),
+        url: instagram.link,
         feed_item_type: "instagram"
       }
     end
