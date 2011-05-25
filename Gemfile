@@ -44,4 +44,5 @@ group :test do
   gem 'rspec-rails'
   gem 'spork'
   gem 'capybara'
+  gem 'mocha'
 end

@@ -1,6 +1,34 @@
 class FeedItemsController < ApplicationController
   def index
+    tweets = call_twitter
+    foursquare_venues = call_foursquare
+    flickr_pictures = call_flickr
+    instagrams = call_instagram
 
+    feed_items = (tweets + instagrams + foursquare_venues + flickr_pictures).sort{|a, b| b[:time] <=> a[:time] }
+    feed_items = feed_items[0..49]
+
+    render partial: "index", locals: {feed_items: feed_items}, layout: false
+
+  end
+
+  def call_twitter
+    tweets = Twitter::Search.new.geocode(params[:lat], params[:lng], "1mi").per_page(50).fetch.reject{|tweet| tweet.geo.nil?}.reject{|tweet| tweet.text.first == "@"}.try(:collect) do |tweet|
+      {
+        time: Time.parse(tweet.created_at),
+        profile_image: tweet.profile_image_url.sub(/_normal\.jpg/, "_reasonably_small.jpg"),
+        text: tweet.text,
+        user: tweet.from_user,
+        url: "http://twitter.com/#{tweet.from_user}/status/#{tweet.id}",
+        distance: tweet.geo.try(:coordinates),
+        feed_item_type: "tweet"
+      }
+    end
+    tweets ||= []
+  end
+
+
+  def call_foursquare
     # foursquare = Foursquare::Base.new(ENV["FOURSQUARE_CLIENT_ID"], ENV["FOURSQUARE_CLIENT_SECRET"])
     # foursquare_venues = []
     # foursquare.venues.nearby(ll: "#{params[:lat]}, #{params[:lng]}").map do |venue|
@@ -22,20 +50,9 @@ class FeedItemsController < ApplicationController
       # end
     # end
     foursquare_venues = []
+  end
 
-    tweets = Twitter::Search.new.geocode(params[:lat], params[:lng], "1mi").per_page(50).fetch.reject{|tweet| tweet.geo.nil?}.reject{|tweet| tweet.text.first == "@"}.try(:collect) do |tweet|
-      {
-        time: Time.parse(tweet.created_at),
-        profile_image: tweet.profile_image_url.sub(/_normal\.jpg/, "_reasonably_small.jpg"),
-        text: tweet.text,
-        user: tweet.from_user,
-        url: "http://twitter.com/#{tweet.from_user}/status/#{tweet.id}",
-        distance: tweet.geo.try(:coordinates),
-        feed_item_type: "tweet"
-      }
-    end
-    tweets ||= []
-
+  def call_instagram
     instagrams = Instagram.media_search(params[:lat], params[:lng]).collect do |instagram|
       {
         time: Time.at(instagram.created_time.to_i),
@@ -46,7 +63,9 @@ class FeedItemsController < ApplicationController
         feed_item_type: "instagram"
       }
     end
+  end
 
+  def call_flickr
     args = {}
     radius = 0.014
     args[:bbox] = "#{params[:lng].to_f - radius},#{params[:lat].to_f - radius},#{params[:lng].to_f + radius},#{params[:lat].to_f + radius}"
@@ -66,11 +85,6 @@ class FeedItemsController < ApplicationController
       }
     end
     flickr_pictures ||= []
-
-    feed_items = (tweets + instagrams + foursquare_venues + flickr_pictures).sort{|a, b| b[:time] <=> a[:time] }
-    feed_items = feed_items[0..49]
-
-    render partial: "index", locals: {feed_items: feed_items}, layout: false
 
   end
 end
