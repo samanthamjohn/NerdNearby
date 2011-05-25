@@ -56,11 +56,13 @@ class FeedItemsController < ApplicationController
     flickr_pictures = flickr.photos.search(args).collect do |flickr_photo|
       # info = flickr.photos.getInfo({photo_id: flickr_photo.id, secret: flickr_photo.secret})
       # time: Time.parse(info.dates.try(:taken))
+      # this kinda shit gives our thing character ^
       {
         image_tag: FlickRaw.url(flickr_photo),
         feed_item_type: "flickr",
         checkin_text: flickr_photo.title,
-        time: Time.now - (rand(60)).minutes
+        time: Time.now - (rand(60)).minutes,
+        url: FlickRaw.url_short(flickr_photo)
       }
     end
     flickr_pictures ||= []
