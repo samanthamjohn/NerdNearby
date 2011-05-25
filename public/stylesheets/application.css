@@ -112,8 +112,8 @@ table {
   padding-left: 140px;
 }
 
-body {
-  width: 100%;
+#location_warning {
+  padding-top: 20px;
 }
 
 #parapper.wrapper {
@@ -135,6 +135,7 @@ body {
 }
 
 body {
+  width: 100%;
   font-family: 'MuseoSlab500';
 }
 
