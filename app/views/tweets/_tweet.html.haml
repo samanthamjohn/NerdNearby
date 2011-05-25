@@ -8,4 +8,5 @@
   .caption
     .tweet= raw(tweet[:text])
     .timestamp= pretty_time(tweet[:time])
+    .original= link_to "See original", tweet[:url]
 

@@ -29,6 +29,7 @@ class FeedItemsController < ApplicationController
         profile_image: tweet.profile_image_url.sub(/_normal\.jpg/, "_reasonably_small.jpg"),
         text: tweet.text,
         user: tweet.from_user,
+        url: "http://twitter.com/#{tweet.from_user}/status/#{tweet.id}",
         distance: tweet.geo.try(:coordinates),
         feed_item_type: "tweet"
       }

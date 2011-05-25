@@ -70,6 +70,9 @@ table {
   width: 300px;
 }
 
+a {
+  text-decoration: none;
+}
 .feed-items .post-body img {
   max-width: 280px;
   position: relative;
@@ -151,6 +154,11 @@ body {
 .foursquare.image-post .caption {
   margin-top: 10px;
   padding-bottom: 20px;
+}
+
+.original {
+  float: right;
+  font-size: small;
 }
 
 h1{
