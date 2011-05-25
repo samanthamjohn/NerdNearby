@@ -16,8 +16,8 @@ $(function() {
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
-  navigator.geolocation.getCurrentPosition(function(position) {
-
+  var mapCanvas = $("#map_canvas");
+  var getFeedResults = function(position, google) {
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
 
@@ -29,10 +29,7 @@ $(function() {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    $.get('feed_items', {
-      lat: lat,
-      lng: lng},
-      function(response) {
+    $.get('feed_items', { lat: lat, lng: lng }, function(response) {
         $(".feed-items").html(response);
 
         $("#map_canvas").show();
@@ -44,5 +41,21 @@ $(function() {
           title: "You are here"
         });
       });
-  });
-});
+  };
+
+  var position = {
+    coords : {
+      latitude : mapCanvas.data("lat"),
+      longitude : mapCanvas.data("lng")
+    }
+  };
+  if(position.coords.latitude && position.coords.longitude) {
+    getFeedResults(position, google);
+  }
+  else {
+    navigator.geolocation.getCurrentPosition(function(position){
+      getFeedResults(position, google);
+    });
+  }
+      
+})
