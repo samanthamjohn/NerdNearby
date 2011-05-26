@@ -1,8 +1,5 @@
 $(function() {
   $("#map_canvas").hide();
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-23507228-1']);
-    _gaq.push(['_trackPageview']);
     FB.init({
       appId  : '203906409650922',
       status : true, // check login status
