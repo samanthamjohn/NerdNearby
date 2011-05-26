@@ -1,10 +1,11 @@
 %li.foursquare.image-post
-  %a{href: instagram[:url]}
+  %a{href: tip[:url]}
     .title.venue
       %h3
         = image_tag "foursquarefavicon.png"
         = tip[:venue]
   .caption
     .text= raw(tip[:text])
+    .address= raw(tip[:address])
     .time= pretty_time(tip[:time])
 
