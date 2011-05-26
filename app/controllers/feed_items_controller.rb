@@ -1,4 +1,5 @@
 class FeedItemsController < ApplicationController
+
   def index
     tweets = call_twitter
     foursquare_venues = call_foursquare
@@ -6,9 +7,9 @@ class FeedItemsController < ApplicationController
     instagrams = call_instagram
 
     feed_items = (tweets + instagrams + foursquare_venues + flickr_pictures).sort{|a, b| b[:time] <=> a[:time] }
-    feed_items = feed_items[0..49]
+    @feed_items = feed_items[0..49]
 
-    render partial: "index", locals: {feed_items: feed_items}, layout: false
+    render partial: "index", locals: {feed_items: @feed_items}, layout: false
 
   end
 
@@ -85,6 +86,7 @@ class FeedItemsController < ApplicationController
       }
     end
     flickr_pictures ||= []
+    flickr_pictures[0..19]
 
   end
 end
