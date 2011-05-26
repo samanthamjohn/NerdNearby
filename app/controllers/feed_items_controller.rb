@@ -2,7 +2,7 @@ class FeedItemsController < ApplicationController
 
   def index
     tweets = call_twitter
-    foursquare_venues = [] #call_foursquare
+    foursquare_venues = call_foursquare
     flickr_pictures = call_flickr
     instagrams = call_instagram
 
