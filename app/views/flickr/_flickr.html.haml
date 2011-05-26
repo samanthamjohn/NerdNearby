@@ -1,11 +1,12 @@
 %li.instagram.image-post
-  .title.place-name
-    %h3
-      = image_tag "flickrfavicon.png"
-      - if instagram[:checkin_text].blank?
-        flickr post
-      - else
-        = raw(instagram[:checkin_text])
+  %a{href: instagram[:url]}
+    .title.place-name
+      %h3
+        = image_tag "flickrfavicon.png"
+        - if instagram[:checkin_text].blank?
+          flickr post
+        - else
+          = raw(instagram[:checkin_text])
   .post-body
     = image_tag instagram[:image_tag]
   .checkin-text.caption
