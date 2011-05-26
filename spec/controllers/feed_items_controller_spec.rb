@@ -41,6 +41,22 @@ describe FeedItemsController do
         feed_items = assigns(:feed_items)
         feed_items.length.should == 20
       end
+
+      it "should search for photos taken between 12 hours and now" do
+        stub_photos = stub(:stub_photos)
+        Timecop.freeze(Time.now)
+        stub_photos.expects(:search).with(
+         :bbox => '-70.014,39.986,-69.986,40.014',
+         :min_taken_date => Time.now - 12.hours,
+         :max_taken_date => Time.now,
+         :accuracy => 11
+        ).returns([])
+        stub_flickr = stub(:flickr_stub)
+        stub_flickr.stubs(:photos).returns(stub_photos)
+        controller.stubs(:flickr).returns(stub_flickr)
+
+        get :index, lat: "40", lng: "-70"
+      end
     end
   end
 

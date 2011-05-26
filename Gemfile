@@ -45,4 +45,5 @@ group :test do
   gem 'spork'
   gem 'capybara'
   gem 'mocha'
+  gem 'timecop'
 end

@@ -70,7 +70,7 @@ class FeedItemsController < ApplicationController
     args = {}
     radius = 0.014
     args[:bbox] = "#{params[:lng].to_f - radius},#{params[:lat].to_f - radius},#{params[:lng].to_f + radius},#{params[:lat].to_f + radius}"
-    args[:min_taken_date] = Time.now - 1.days
+    args[:min_taken_date] = Time.now - 12.hours
     args[:max_taken_date] = Time.now
     args[:accuracy] = 11
     flickr_pictures = flickr.photos.search(args).collect do |flickr_photo|
