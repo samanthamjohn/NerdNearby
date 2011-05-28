@@ -2,7 +2,7 @@ describe("application.js", function() {
 
   it("should set all the times for feed items", function() {
     var fixture = "<div class='timestamp'" +
-                  "data-hour='04'" +
+                  "data-hour='12'" +
                   "data-minute='03'" +
                   "data-weekday='Monday'" +
                   "></div>";
