@@ -45,6 +45,7 @@ group :test do
   gem 'rspec-rails'
   gem 'spork'
   gem 'capybara'
+  gem 'jasmine'
   gem 'mocha'
   gem 'timecop'
 end
