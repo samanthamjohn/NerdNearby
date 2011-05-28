@@ -13,4 +13,6 @@
     = instagram[:place_name]
     = pretty_time(instagram[:time])
     .original= link_to "See original", instagram[:url]
+    .make-me-famous
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url='http://nerdnearby.com' data-text="#{instagram[:url]} I found this near me!" data-count="none" data-via="nerdnearby">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 

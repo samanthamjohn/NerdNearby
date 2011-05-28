@@ -10,4 +10,6 @@
     .tweet= raw(tweet[:text])
     .timestamp= pretty_time(tweet[:time])
     .original= link_to "See original", tweet[:url]
+    .make-me-famous
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url='http://nerdnearby.com' data-text="#{tweet[:url]} I found this near me!" data-count="none" data-via="nerdnearby">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 

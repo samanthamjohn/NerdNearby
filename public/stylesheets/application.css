@@ -153,12 +153,16 @@ body {
 
 .foursquare.image-post .caption {
   margin-top: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .original {
   float: right;
   font-size: small;
+}
+
+.timestamp {
+  padding-bottom: 10px;
 }
 
 h1{
