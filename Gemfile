@@ -35,17 +35,17 @@ gem 'sqlite3'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-#   gem 'webrat'
+  gem 'jasmine'
+  #   gem 'webrat'
   gem 'factory_girl'
+  gem 'rspec-rails'
 end
 
 group :test do
   gem 'cucumber-rails'
   gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'rspec-rails'
   gem 'spork'
   gem 'capybara'
-  gem 'jasmine'
   gem 'mocha'
   gem 'timecop'
 end

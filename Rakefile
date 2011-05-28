@@ -3,5 +3,6 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
+task :default => ['jasmine:ci', 'spec', 'cucumber' ]
 
 Locations::Application.load_tasks

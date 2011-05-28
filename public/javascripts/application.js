@@ -14,6 +14,7 @@ $(function() {
     })();
 
   var mapCanvas = $("#map_canvas");
+
   var getFeedResults = function(position, google) {
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
@@ -27,17 +28,18 @@ $(function() {
     };
 
     $.get('feed_items', { lat: lat, lng: lng }, function(response) {
-        $(".feed-items").html(response);
+      $(".feed-items").html(response);
 
-        $("#map_canvas").show();
-        var map = new google.maps.Map($("#map_canvas").get(0), myOptions);
+      $("#map_canvas").show();
+      var map = new google.maps.Map($("#map_canvas").get(0), myOptions);
 
-        var marker = new google.maps.Marker({
-          position: latlng,
-          map: map,
-          title: "You are here"
-        });
+      var marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        title: "You are here"
       });
+      findFeedItems();
+    });
   };
 
   var position = {
@@ -54,5 +56,82 @@ $(function() {
       getFeedResults(position, google);
     });
   }
-      
-})
+});
+
+function previousDay(day) {
+  switch(day) {
+    case "Monday":
+      return "Sunday";
+    case "Wednesday":
+      return "Tuesday";
+    case "Thursday":
+      return "Wednesday";
+    case "Friday":
+      return "Thursday";
+    case "Saturday":
+      return "Friday";
+    case "Tuesday":
+      return "Monday";
+    default:
+      return "Saturday";
+  }
+}
+
+function nextDay(day) {
+  switch(day) {
+    case "Monday":
+      return "Tuesday";
+    case "Tuesday":
+      return "Wednesday";
+    case "Wednesday":
+      return "Thursday";
+    case "Thursday":
+      return "Friday";
+    case "Friday":
+      return "Saturday";
+    case "Saturday":
+      return "Sunday";
+    default:
+      return "Monday";
+  }
+}
+function findFeedItems() {
+  $(".timestamp").each(function() {
+    var $this = $(this);
+    var newDate = new Date();
+    var offset = -(newDate.getTimezoneOffset() / 60);
+    var time = UTCToLocalTime($this.data("weekday"), $this.data("hour"), $this.data("minute"), offset)
+    $this.html(time);
+  });
+}
+
+function UTCToLocalTime(dayOfWeek, hour, minute, offset) {
+
+  hour = hour + offset;
+  var time;
+
+  if(minute < 10) {
+    minute = "0" + minute;
+  }
+
+  if(hour == 0) {
+    hour = 12;
+  }
+
+  if (hour > 23) {
+    hour = hour - 12;
+    dayOfWeek = nextDay(dayOfWeek);
+  } else if(hour < 0) {
+    hour = hour + 24;
+    dayOfWeek = previousDay(dayOfWeek);
+  }
+
+
+  if (hour > 12) {
+    time = "" + (hour - 12) + ":" + minute + " PM";
+  } else {
+    time = "" + hour + ":" + minute + " AM";
+  }
+
+  return dayOfWeek + " " + time;
+}

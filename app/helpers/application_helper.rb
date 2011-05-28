@@ -2,7 +2,13 @@ module ApplicationHelper
 
 
   def pretty_time(time)
-    time.nil? ? pretty_time = "" : pretty_time = time.strftime("%A %I:%M %p").gsub(" 0", " ")
-    content_tag("div", pretty_time, {:class => "timestamp"})
+    return "" unless time
+    weekday, hour, minute = time.strftime("%A %H %M").split(" ")
+    content_tag("div", "", {
+      :class => "timestamp",
+      "data-weekday" => weekday,
+      "data-hour" => hour,
+      "data-minute" => minute
+    })
   end
 end

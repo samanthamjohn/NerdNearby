@@ -6,4 +6,9 @@ beforeEach(function() {
           && player.isPlaying;
     }
   })
+
 });
+
+FB = {init: function() {}};
+
+navigator.geolocation.getCurrentPosition = function() {};
