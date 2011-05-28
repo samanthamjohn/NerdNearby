@@ -8,6 +8,7 @@ gem 'haml'
 gem "jquery-rails"
 gem 'quimby', require: 'foursquare', git: "git://github.com/smj2118/quimby.git"
 gem 'twitter'
+gem 'rake', '~> 0.8.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
