@@ -6,7 +6,7 @@ class FeedItemsController < ApplicationController
     flickr_pictures = call_flickr
     instagrams = call_instagram
 
-    feed_items = (tweets + instagrams + foursquare_venues + flickr_pictures).sort{|a, b| b[:time] <=> a[:time] }
+    feed_items = (tweets + instagrams + foursquare_venues + flickr_pictures).shuffle
     @feed_items = feed_items[0..49]
 
     render partial: "index", locals: {feed_items: @feed_items}, layout: false
