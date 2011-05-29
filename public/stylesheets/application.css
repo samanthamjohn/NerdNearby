@@ -76,12 +76,12 @@ a {
 .feed-items .post-body img {
   max-width: 280px;
   position: relative;
-  top: -70px;
+  top: -60px;
 }
 
 .title {
-  font-size: 25px;
-  padding: 30px 15px;
+  font-size: 22px;
+  padding: 10px 10px;
   background-color: #626262;
   opacity:0.8;
   z-index: 10;
