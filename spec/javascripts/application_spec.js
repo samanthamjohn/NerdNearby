@@ -7,9 +7,10 @@ describe("application.js", function() {
                   "data-weekday='Monday'" +
                   "></div>";
     $(fixture).appendTo("body")
+    spyOn(window, "UTCToLocalTime").andReturn("Foo")
     findFeedItems();
     var timestamp = $("body").find(".timestamp");
-    expect(timestamp.html()).toEqual("Monday 8:03 AM")
+    expect(timestamp.html()).toEqual("Foo")
   });
 
   describe("UTCToLocalTime", function() {
