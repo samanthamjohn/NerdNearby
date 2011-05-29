@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe FeedItemsController do
   describe "#index" do
-    describe "twitter" do
+    describe "#call_twitter" do
       before do
         controller.stubs(:call_foursquare).returns([])
         controller.stubs(:call_instagram).returns([])
