@@ -1,3 +1,6 @@
+//= require jquery
+//= require jquery_ujs
+
 $(function() {
   $("#map_canvas").hide();
     FB.init({

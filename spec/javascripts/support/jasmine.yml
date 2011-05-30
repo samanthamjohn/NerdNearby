@@ -11,13 +11,10 @@
 #   - dist/**/*.js
 #
 src_files:
-  - public/javascripts/jquery.js
-  - public/javascripts/prototype.js
-  - public/javascripts/effects.js
-  - public/javascripts/controls.js
-  - public/javascripts/dragdrop.js
-  - public/javascripts/application.js
-  - public/javascripts/**/*.js
+  - jquery.js
+  - jquery_ujs.js
+  - application.js
+  - '**/*.js'
 
 # stylesheets
 #
@@ -31,7 +28,7 @@ src_files:
 #   - stylesheets/*.css
 #
 stylesheets:
-  - stylesheets/**/*.css
+  - app/assets/stylesheets/**/*.css
 
 # helpers
 #
@@ -68,7 +65,7 @@ spec_files:
 #
 # src_dir: public
 #
-src_dir:
+src_dir: app/assets/javascripts
 
 # spec_dir
 #

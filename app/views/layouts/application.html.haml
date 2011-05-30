@@ -5,19 +5,19 @@
       var _sf_startpt=(new Date()).getTime()
     %title Nerd Nearby - Aggregating social media near you
     = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
-    = stylesheet_link_tag :all
-    = javascript_include_tag :defaults
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
     = csrf_meta_tag
     %meta{name:"viewport", content: "initial-scale=1.0, user-scalable=no"}
     <meta property="og:title" content="Nerd Nearby - Aggregating social media near you" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://nerdnearby.com" />
-    <meta property="og:image" content="http://nerdnearby.com/images/glasses.png" />
+    <meta property="og:image" content="/assets/glasses.png" />
     <meta property="og:site_name" content="Nerd Nearby" />
     <meta property="fb:admins" content="113094" />
     <div id="fb-root"></div>
     <script src="http://connect.facebook.net/en_US/all.js"></script>
-    <link rel="icon" type="image/png" href="/images/faviconglassesx16.png" />
+    <link rel="icon" type="image/png" href="/assets/faviconglassesx16.png" />
     %script{ type: "text/javascript" }
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-23507228-1']);

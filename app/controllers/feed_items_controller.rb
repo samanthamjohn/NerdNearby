@@ -55,13 +55,14 @@ class FeedItemsController < ApplicationController
   end
 
   def call_instagram
-    instagrams = Instagram.media_search(params[:lat], params[:lng]).collect do |instagram|
+    instagrams = Instagram.media_search(params[:lat], params[:lng]).collect do |instagram|  
+     checkin_text = instagram["caption"].blank? ? "" : instagram["caption"]["text"]
       {
-        time: Time.at(instagram.created_time.to_i),
-        image_tag: instagram.images.low_resolution.url,
-        place_name: instagram.location.name,
-        checkin_text: instagram.caption.try(:text),
-        url: instagram.link,
+        time: Time.at(instagram["created_time"].to_i),
+        image_tag: instagram["images"]["low_resolution"]["url"],
+        place_name: instagram["location"]["name"],
+        checkin_text: checkin_text,
+        url: instagram["link"],
         feed_item_type: "instagram"
       }
     end

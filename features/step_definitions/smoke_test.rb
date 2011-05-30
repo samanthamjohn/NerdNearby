@@ -7,6 +7,7 @@ Then /^I sleep (\d+) seconds$/ do |time|
 end
 
 Given /^I am geolocated to "([^"]*)"$/ do |location|
+  debugger
   visit "/?#{location}"
 end
 
