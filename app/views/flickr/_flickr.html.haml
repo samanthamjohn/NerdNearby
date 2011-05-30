@@ -5,13 +5,15 @@
         = image_tag "flickrfavicon.png"
         - if instagram[:checkin_text].blank?
           flickr post
+          - instagram_text = "this awesome picture"
         - else
           = raw(instagram[:checkin_text])
+          - instagram_text = instagram[:checkin_text][0..83]
   .post-body
     = image_tag instagram[:image_tag]
   .checkin-text.caption
     = instagram[:place_name]
     .original= link_to "See original", instagram[:url]
     .make-me-famous
-      <a href="http://twitter.com/share" class="twitter-share-button" data-url='http://nerdnearby.com' data-text="#{instagram[:url]} I found this near me!" data-count="none" data-via="nerdnearby">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url='http://nerdnearby.com' data-text="I found \"#{instagram_text}\" nearby #{instagram[:url]}! via" data-count="none" >Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 

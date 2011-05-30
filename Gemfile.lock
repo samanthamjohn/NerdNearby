@@ -202,6 +202,7 @@ DEPENDENCIES
   jasmine
   jquery-rails
   mocha
+  nokogiri
   quimby!
   rails (= 3.0.7)
   rake (~> 0.8.7)

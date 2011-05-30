@@ -11,4 +11,9 @@ module ApplicationHelper
       "data-minute" => minute
     })
   end
+
+  def tweet_maker(feed_item)
+    # FIXME
+    # '<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://nerdnearby.com" data-text="I found \"#{instagram_text}\" nearby #{instagram[:url]}! via" data-count="none" >Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>'
+  end
 end

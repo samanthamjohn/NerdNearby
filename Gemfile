@@ -38,6 +38,7 @@ group :development, :test do
   gem 'jasmine'
   #   gem 'webrat'
   gem 'factory_girl'
+  gem 'nokogiri'
   gem 'rspec-rails'
 end
 
