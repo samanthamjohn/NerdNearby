@@ -23,16 +23,22 @@ def call_twitter
   from_users = []
 
   tweets = []
-  Twitter::Search.new.geocode(params[:lat], params[:lng], "1mi").per_page(50).fetch.try(:reject) {|tweet| tweet.text.first == "@" || tweet.text.include?("http")}.try(:each) do |tweet|
-    next if from_users.include?(tweet.from_user)
-    from_users << tweet.from_user
+  twit = JSON.parse(Net::HTTP.get(URI.parse("http://search.twitter.com/search.json?geocode=#{params[:lat]},#{params[:lng]},1mi")))["results"]
+  twit.try(:reject) {|tweet| tweet["text"].try(:first) == "@" || tweet["text"].include?("http")}.try(:each) do |tweet|
+    next if from_users.include?(tweet["from_user"])
+    from_users << tweet["from_user"]
+    if tweet["geo"]
+      distance = tweet["geo"].coordinates
+    else
+      distance = ""
+    end
     tweets << {
-      time: Time.parse(tweet.created_at),
-      profile_image: tweet.profile_image_url.sub(/_normal\.jpg/, "_reasonably_small.jpg"),
-      text: tweet.text,
-      user: tweet.from_user,
-      url: "http://twitter.com/#{tweet.from_user}/status/#{tweet.id}",
-      distance: tweet.geo.try(:coordinates),
+      time: Time.parse(tweet["created_at"]),
+      profile_image: tweet["profile_image_url"].sub(/_normal\.jpg/, "_reasonably_small.jpg"),
+      text: tweet["text"],
+      user: tweet["from_user"],
+      url: "http://twitter.com/#{tweet["from_user"]}/status/#{tweet["id"]}",
+      distance: distance,
         feed_item_type: "tweet"
     }
   end
