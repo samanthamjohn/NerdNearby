@@ -28,7 +28,7 @@ def call_twitter
     next if from_users.include?(tweet["from_user"])
     from_users << tweet["from_user"]
     if tweet["geo"]
-      distance = tweet["geo"].coordinates
+      distance = tweet["geo"]["coordinates"]
     else
       distance = ""
     end
