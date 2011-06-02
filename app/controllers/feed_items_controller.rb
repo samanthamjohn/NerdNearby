@@ -28,7 +28,7 @@ def call_twitter
     next if from_users.include?(tweet["from_user"])
     from_users << tweet["from_user"]
     if tweet["geo"]
-      distance = tweet["geo"].coordinates
+      distance = tweet["geo"]["coordinates"]
     else
       distance = ""
     end
@@ -90,7 +90,7 @@ def call_flickr
     # info = flickr.photos.getInfo({photo_id: flickr_photo.id, secret: flickr_photo.secret})
     # time: Time.parse(info.dates.try(:taken))
     {
-      image_tag: FlickRaw.url(flickr_photo),
+      image_tag: FlickRaw.url_m(flickr_photo),
       feed_item_type: "flickr",
       checkin_text: flickr_photo.title,
       time: Time.now - (rand(60)).minutes,
