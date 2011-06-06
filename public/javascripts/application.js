@@ -114,20 +114,19 @@ function UTCToLocalTime(dayOfWeek, hour, minute, offset) {
     minute = "0" + minute;
   }
 
-  if(hour == 0) {
-    hour = 12;
-  }
-
-  if (hour > 23) {
-    hour = hour - 12;
+  if (hour >= 24) {
+    hour = hour - 24;
     dayOfWeek = nextDay(dayOfWeek);
   } else if(hour < 0) {
     hour = hour + 24;
     dayOfWeek = previousDay(dayOfWeek);
   }
 
-
-  if (hour > 12) {
+  if (hour == 12) {
+    time = "12" + ":" + minute + " PM";
+  } else if (hour == 0) {
+    time = "12:" + minute + " AM";
+  } else if (hour > 12) {
     time = "" + (hour - 12) + ":" + minute + " PM";
   } else {
     time = "" + hour + ":" + minute + " AM";

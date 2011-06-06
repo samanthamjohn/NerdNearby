@@ -28,7 +28,17 @@ describe("application.js", function() {
         expect(localTime).toBe("Friday 8:05 PM");
       });
 
-      it("it should set time 0 to 12", function() {
+      it("should set noon to 12 PM", function() {
+        var dayOfWeek = "Friday";
+        var hour = 12;
+        var minute = 0;
+        var offset = 0;
+        var localTime = UTCToLocalTime(dayOfWeek, hour, minute, offset);
+
+        expect(localTime).toBe("Friday 12:00 PM");
+      });
+
+      it("should set time 0 to 12", function() {
         var dayOfWeek = "Friday";
         var hour = 0;
         var minute = 5;
