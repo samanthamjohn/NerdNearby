@@ -4,6 +4,7 @@ gem 'flickraw'
 gem 'haml'
 gem 'heroku'
 gem 'instagram'
+gem 'jammit'
 gem 'jquery-rails'
 gem 'quimby', require: 'foursquare', git: "git://github.com/smj2118/quimby.git"
 gem 'rails', '3.0.7'
