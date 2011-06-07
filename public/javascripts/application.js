@@ -1,17 +1,17 @@
 $(function() {
   $("#map_canvas").hide();
-    FB.init({
-      appId  : '203906409650922',
-      status : true, // check login status
-      cookie : true, // enable cookies to allow the server to access the session
-      xfbml  : true  // parse XFBML
-    });
+    // FB.init({
+      // appId  : '203906409650922',
+      // status : true, // check login status
+      // cookie : true, // enable cookies to allow the server to access the session
+      // xfbml  : true  // parse XFBML
+    // });
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    // (function() {
+      // var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      // ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      // var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    // })();
 
   var mapCanvas = $("#map_canvas");
 
