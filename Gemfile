@@ -16,13 +16,13 @@ group :development, :test do
   gem 'factory_girl'
   gem 'jasmine'
   gem 'rspec-rails'
+  gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 group :test do
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'mocha'
-  gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'spork'
   gem 'timecop'
 end
