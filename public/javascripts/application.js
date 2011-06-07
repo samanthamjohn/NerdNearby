@@ -27,19 +27,19 @@ $(function() {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    // $.get('feed_items', { lat: lat, lng: lng }, function(response) {
-      // $(".feed-items").html(response);
+    $.get('feed_items', { lat: lat, lng: lng }, function(response) {
+      $(".feed-items").html(response);
 
-      // $("#map_canvas").show();
-      // var map = new google.maps.Map($("#map_canvas").get(0), myOptions);
+      $("#map_canvas").show();
+      var map = new google.maps.Map($("#map_canvas").get(0), myOptions);
 
-      // var marker = new google.maps.Marker({
-        // position: latlng,
-        // map: map,
-        // title: "You are here"
-      // });
-      // findFeedItems();
-    // });
+      var marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        title: "You are here"
+      });
+      findFeedItems();
+    });
   };
 
   var position = {
