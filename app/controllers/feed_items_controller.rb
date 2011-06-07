@@ -13,7 +13,7 @@ def index
   instagrams = instagram_thread.value
 
   feed_items = (instagrams + flickr_pictures).sort{|a, b| b[:time] <=> a[:time] }
-  @feed_items = feed_items[0]#..1]#.shuffle
+  @feed_items = [feed_items[0]]#..1]#.shuffle
 
   render partial: "index", locals: {feed_items: @feed_items}, layout: false
 
