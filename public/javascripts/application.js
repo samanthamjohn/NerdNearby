@@ -38,7 +38,7 @@ $(function() {
         // map: map,
         // title: "You are here"
       // });
-      findFeedItems();
+      // findFeedItems();
     });
   };
 
