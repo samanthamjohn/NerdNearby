@@ -1,11 +1,13 @@
 $(function() {
   $("#map_canvas").hide();
+  if (!window.mobileRequest) {
     FB.init({
       appId  : '203906409650922',
       status : true, // check login status
       cookie : true, // enable cookies to allow the server to access the session
       xfbml  : true  // parse XFBML
     });
+  }
 
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;

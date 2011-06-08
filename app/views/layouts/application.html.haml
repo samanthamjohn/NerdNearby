@@ -1,7 +1,9 @@
 !!!
 %html
   %head
-    %script{type:"text/javascript"}
+    %script{ type: 'text/javascript' }
+      == window.mobileRequest = #{@mobile_request.to_s};
+    %script{ type:"text/javascript" }
       var _sf_startpt=(new Date()).getTime()
     %title Nerd Nearby - Aggregating social media near you
     = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
