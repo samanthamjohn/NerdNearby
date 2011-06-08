@@ -89,7 +89,7 @@ def call_flickr
     # info = flickr.photos.getInfo({photo_id: flickr_photo.id, secret: flickr_photo.secret})
     # time: Time.parse(info.dates.try(:taken))
     {
-      image_tag: FlickRaw.url(flickr_photo),
+      image_tag: FlickRaw.url_m(flickr_photo),
       feed_item_type: "flickr",
       checkin_text: flickr_photo.title,
       time: Time.now - (rand(60)).minutes,

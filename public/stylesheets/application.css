@@ -70,6 +70,9 @@ table {
   width: 300px;
 }
 
+.flickr .post-body img {
+  min-width: 280px;
+}
 a {
   text-decoration: none;
 }
