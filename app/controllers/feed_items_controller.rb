@@ -13,7 +13,8 @@ def index
   instagrams = instagram_thread.value
 
   feed_items = (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
-  @feed_items = feed_items[0..19].shuffle
+  max_items = @mobile_request ? 19 : 49
+  @feed_items = feed_items[0..max_items].shuffle
   render partial: "index", locals: {feed_items: @feed_items}, layout: false
 
 end
