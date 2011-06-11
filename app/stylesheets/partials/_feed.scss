@@ -13,12 +13,21 @@
 body {
   width: 100%;
   font-family: 'MuseoSlab500';
+
+  a {
+    text-decoration: none;
+  }
+
 }
 
 #parapper.wrapper {
   width: 310px;
   margin: auto;
   overflow-x: hidden;
+
+  #iphone_app {
+    text-align: center;
+  }
 
   h1{
     font-size: 40px;
@@ -118,10 +127,6 @@ body {
 
   .flickr  .post-body img {
     min-width: 280px;
-  }
-
-  a {
-    text-decoration: none;
   }
 
   .title {

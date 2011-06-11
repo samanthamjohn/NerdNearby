@@ -3,12 +3,15 @@
     = 'nerd <span class="green">[</span>nearby</span><span class="green">]</span>'.html_safe
   = image_tag 'glasses.png'
 
+- if !(params[:lat])
+  #iphone_app= link_to image_tag("/images/iphoneBadgeSmall.jpg"), "http://bit.ly/kcHjVY"
 .overlay
 #map_canvas{ "data-lat" => params[:lat], "data-lng" => params[:lng] }
 
 .feed-items
 
-  %h2#location_warning Do we keep spinning?  Make sure you've allowed your browser to share your location!
+  - if !(params[:lat])
+    %h2#location_warning Do we keep spinning?  Make sure you've allowed your browser to share your location!
 
   #spinner
     = image_tag 'not_this_spinner.gif'
