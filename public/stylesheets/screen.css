@@ -68,67 +68,68 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-/* line 1, ../../app/stylesheets/partials/_feed.scss */
+@font-face {
+  font-family: 'MuseoSlab500';
+  src: url("/Museo_Slab_500-webfont.eot");
+  src: url("/Museo_Slab_500-webfont.eot?iefix") format("eot"), url("/Museo_Slab_500-webfont.woff") format("woff"), url("/Museo_Slab_500-webfont.ttf") format("truetype"), url("/Museo_Slab_500-webfont.svg#webfontyumMOUTD") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 13, ../../app/stylesheets/partials/_feed.scss */
 body {
   width: 100%;
   font-family: 'MuseoSlab500';
 }
-/* line 5, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper {
+
+/* line 18, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper {
   width: 310px;
   margin: auto;
   overflow-x: hidden;
-  @font-face {
-    font-family: 'MuseoSlab500';
-    src: url("/Museo_Slab_500-webfont.eot");
-    src: url("/Museo_Slab_500-webfont.eot?iefix") format("eot"), url("/Museo_Slab_500-webfont.woff") format("woff"), url("/Museo_Slab_500-webfont.ttf") format("truetype"), url("/Museo_Slab_500-webfont.svg#webfontyumMOUTD") format("svg");
-    font-weight: normal;
-    font-style: normal;
 }
-
-}
-/* line 10, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper h1 {
+/* line 23, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper h1 {
   font-size: 40px;
 }
-/* line 14, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper h1 .green {
+/* line 27, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper h1 .green {
   color: #bfd73b;
 }
-/* line 18, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .logo {
+/* line 31, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .logo {
   width: 310px;
   text-align: center;
 }
-/* line 21, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .logo .img {
+/* line 34, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .logo .img {
   margin: auto;
 }
-/* line 26, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .overlay {
+/* line 39, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .overlay {
   position: absolute;
   z-index: 999;
   width: 310px;
   height: 200px;
 }
-/* line 33, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper #location_warning {
+/* line 46, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper #location_warning {
   padding-top: 20px;
 }
-/* line 42, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper ol, body #parapper.wrapper ul {
+/* line 55, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper ol, #parapper.wrapper ul {
   list-style: none;
 }
-/* line 46, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper #spinner {
+/* line 59, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper #spinner {
   width: 310px;
   display: block;
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: 140px;
 }
-/* line 54, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper #map_canvas {
+/* line 67, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper #map_canvas {
   height: 140px;
   margin-left: 0;
   margin-top: 15px;
@@ -136,58 +137,57 @@ body #parapper.wrapper #map_canvas {
   border: 5px solid #ececec;
   width: 300px;
 }
-/* line 63, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .feed-items {
+/* line 76, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .feed-items {
   width: 310px;
   overflow: hidden;
 }
-/* line 67, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .feed-items li {
+/* line 80, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .feed-items li {
   background-color: #ececec;
 }
-/* line 71, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .feed-items .caption {
+/* line 84, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .feed-items .caption {
   margin: 15px;
 }
-/* line 76, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .feed-items .image-post.foursquare .caption {
+/* line 89, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .feed-items .image-post.foursquare .caption {
   margin-top: 10px;
   padding-bottom: 10px;
 }
-/* line 80, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .feed-items .image-post .caption {
+/* line 93, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .feed-items .image-post .caption {
   margin-top: -70px;
   padding-bottom: 20px;
 }
-/* line 86, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .feed-items .post-body {
+/* line 99, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .feed-items .post-body {
   margin: 15px;
 }
-/* line 88, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .feed-items .post-body img {
+/* line 101, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .feed-items .post-body img {
   max-width: 280px;
   position: relative;
   top: -60px;
 }
-/* line 95, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .feed-items .original {
+/* line 108, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .feed-items .make-me-famous {
   float: right;
-  font-size: small;
 }
-/* line 100, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .feed-items .timestamp {
+/* line 112, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .feed-items .timestamp {
   padding-bottom: 10px;
 }
-/* line 107, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .flickr .post-body img {
+/* line 119, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .flickr .post-body img {
   min-width: 280px;
 }
-/* line 111, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper a {
+/* line 123, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper a {
   text-decoration: none;
 }
-/* line 115, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .title {
+/* line 127, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .title {
   font-size: 22px;
   padding: 10px 10px;
   background-color: #626262;
@@ -195,27 +195,27 @@ body #parapper.wrapper .title {
   z-index: 10;
   position: relative;
 }
-/* line 122, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .title h3 {
+/* line 134, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .title h3 {
   color: white;
   opacity: 1.0;
 }
-/* line 128, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .share {
+/* line 140, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .share {
   padding: 20px 20px 100px 95px;
 }
-/* line 132, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .share .facebook {
+/* line 144, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .share .facebook {
   float: left;
   width: 50px;
   padding-left: 20px;
 }
-/* line 138, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper .share .twitter {
+/* line 150, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .share .twitter {
   float: left;
 }
-/* line 142, ../../app/stylesheets/partials/_feed.scss */
-body #parapper.wrapper table {
+/* line 154, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper table {
   border-collapse: collapse;
   border-spacing: 0;
 }

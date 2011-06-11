@@ -1,159 +1,159 @@
+@font-face {
+    font-family: 'MuseoSlab500';
+    src: url('/Museo_Slab_500-webfont.eot');
+    src: url('/Museo_Slab_500-webfont.eot?iefix') format('eot'),
+         url('/Museo_Slab_500-webfont.woff') format('woff'),
+         url('/Museo_Slab_500-webfont.ttf') format('truetype'),
+         url('/Museo_Slab_500-webfont.svg#webfontyumMOUTD') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
   width: 100%;
   font-family: 'MuseoSlab500';
+}
 
-  #parapper.wrapper {
+#parapper.wrapper {
+  width: 310px;
+  margin: auto;
+  overflow-x: hidden;
+
+  h1{
+    font-size: 40px;
+  }
+
+  h1 .green {
+    color: #bfd73b;
+  }
+
+  .logo {
     width: 310px;
-    margin: auto;
-    overflow-x: hidden;
-
-    h1{
-      font-size: 40px;
-    }
-
-    h1 .green {
-      color: #bfd73b;
-    }
-
-    .logo {
-      width: 310px;
-      text-align: center;
-      .img {
-        margin: auto;
-      }
-    }
-
-    .overlay {
-      position: absolute;
-      z-index: 999;
-      width: 310px;
-      height: 200px;
-    }
-
-    #location_warning {
-      padding-top: 20px;
-    }
-
-    //FIXME- wtf?
-    // .desc {
-      // text-align: center;
-      // width: 310px;
-    // }
-    ol, ul {
-      list-style: none;
-    }
-
-    #spinner {
-      width: 310px;
-      display: block;
-      padding-top: 30px;
-      padding-bottom: 30px;
-      padding-left: 140px;
-    }
-
-    #map_canvas {
-      height: 140px;
-      margin-left: 0;
-      margin-top: 15px;
-      margin-bottom: 15px;
-      border: 5px solid #ececec;
-      width: 300px;
-    }
-
-    .feed-items {
-      width: 310px;
-      overflow: hidden;
-
-      li {
-        background-color: #ececec;
-      }
-
-      .caption {
-        margin: 15px;
-      }
-
-      .image-post {
-        &.foursquare .caption {
-          margin-top: 10px;
-          padding-bottom: 10px;
-        }
-        .caption {
-          margin-top: -70px;
-          padding-bottom: 20px;
-        }
-      }
-
-      .post-body {
-        margin: 15px;
-        img {
-          max-width: 280px;
-          position: relative;
-          top: -60px;
-        }
-      }
-
-      .original {
-        float: right;
-        font-size: small;
-      }
-
-      .timestamp {
-        padding-bottom: 10px;
-      }
-
-
-    }
-
-    .flickr  .post-body img {
-      min-width: 280px;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .title {
-      font-size: 22px;
-      padding: 10px 10px;
-      background-color: #626262;
-      opacity:0.8;
-      z-index: 10;
-      position: relative;
-      h3 {
-        color: white;
-        opacity: 1.0;
-      }
-    }
-
-    .share {
-      padding: 20px 20px 100px 95px;
-    }
-
-    .share .facebook {
-      float: left;
-      width: 50px;
-      padding-left: 20px;
-    }
-
-    .share .twitter {
-      float: left;
-    }
-
-    table {
-      border-collapse: collapse;
-      border-spacing: 0;
-    }
-
-    @font-face {
-        font-family: 'MuseoSlab500';
-        src: url('/Museo_Slab_500-webfont.eot');
-        src: url('/Museo_Slab_500-webfont.eot?iefix') format('eot'),
-             url('/Museo_Slab_500-webfont.woff') format('woff'),
-             url('/Museo_Slab_500-webfont.ttf') format('truetype'),
-             url('/Museo_Slab_500-webfont.svg#webfontyumMOUTD') format('svg');
-        font-weight: normal;
-        font-style: normal;
-
+    text-align: center;
+    .img {
+      margin: auto;
     }
   }
+
+  .overlay {
+    position: absolute;
+    z-index: 999;
+    width: 310px;
+    height: 200px;
+  }
+
+  #location_warning {
+    padding-top: 20px;
+  }
+
+  //FIXME- wtf?
+  // .desc {
+    // text-align: center;
+    // width: 310px;
+  // }
+  ol, ul {
+    list-style: none;
+  }
+
+  #spinner {
+    width: 310px;
+    display: block;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 140px;
+  }
+
+  #map_canvas {
+    height: 140px;
+    margin-left: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 5px solid #ececec;
+    width: 300px;
+  }
+
+  .feed-items {
+    width: 310px;
+    overflow: hidden;
+
+    li {
+      background-color: #ececec;
+    }
+
+    .caption {
+      margin: 15px;
+    }
+
+    .image-post {
+      &.foursquare .caption {
+        margin-top: 10px;
+        padding-bottom: 10px;
+      }
+      .caption {
+        margin-top: -70px;
+        padding-bottom: 20px;
+      }
+    }
+
+    .post-body {
+      margin: 15px;
+      img {
+        max-width: 280px;
+        position: relative;
+        top: -60px;
+      }
+    }
+
+    .make-me-famous {
+      float: right;
+    }
+
+    .timestamp {
+      padding-bottom: 10px;
+    }
+
+
+  }
+
+  .flickr  .post-body img {
+    min-width: 280px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .title {
+    font-size: 22px;
+    padding: 10px 10px;
+    background-color: #626262;
+    opacity:0.8;
+    z-index: 10;
+    position: relative;
+    h3 {
+      color: white;
+      opacity: 1.0;
+    }
+  }
+
+  .share {
+    padding: 20px 20px 100px 95px;
+  }
+
+  .share .facebook {
+    float: left;
+    width: 50px;
+    padding-left: 20px;
+  }
+
+  .share .twitter {
+    float: left;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
 }
