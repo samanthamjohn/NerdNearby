@@ -10,5 +10,5 @@
     .tweet= raw(tweet[:text])
     = pretty_time(tweet[:time])
     .make-me-famous
-      <a href="http://twitter.com/share" class="twitter-share-button" data-url='http://nerdnearby.com' data-text="#{tweet[:url]} I found this near me!" data-count="none" data-via="nerdnearby">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <a href="http://twitter.com/share" class="twitter-share-button" data-text='"RT @#{tweet[:user]} #{raw(tweet[:text])}" via ' data-count="none" data-url="http://nerdnearby.com" >Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
