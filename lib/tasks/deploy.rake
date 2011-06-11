@@ -1,8 +1,11 @@
 task :deploy do
 
 
-  raise unless $SERVER
-  `git push #{$SERVER}`
+  if $SERVER
+    `git push #{$SERVER}`
+  else
+    `git push && git push staging master && git push heroku master`
+  end
 end
 
 task :staging do
