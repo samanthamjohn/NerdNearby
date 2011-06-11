@@ -8,4 +8,5 @@ javascripts:
 stylesheets:
   common:
     - public/stylesheets/application.css
+    - public/stylesheets/screen.css
 

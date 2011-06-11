@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'compass', '>= 0.11.2'
 gem 'flickraw'
 gem 'haml'
 gem 'heroku'
