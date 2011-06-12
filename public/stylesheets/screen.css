@@ -83,52 +83,53 @@ body {
 }
 /* line 17, ../../app/stylesheets/partials/_feed.scss */
 body a {
+  color: #28658d;
   text-decoration: none;
 }
 
-/* line 23, ../../app/stylesheets/partials/_feed.scss */
+/* line 24, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper {
   width: 310px;
   margin: auto;
   overflow-x: hidden;
 }
-/* line 28, ../../app/stylesheets/partials/_feed.scss */
+/* line 29, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper #iphone_app {
   text-align: center;
 }
-/* line 32, ../../app/stylesheets/partials/_feed.scss */
+/* line 33, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper h1 {
   font-size: 40px;
 }
-/* line 36, ../../app/stylesheets/partials/_feed.scss */
+/* line 37, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper h1 .green {
   color: #bfd73b;
 }
-/* line 40, ../../app/stylesheets/partials/_feed.scss */
+/* line 41, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .logo {
   width: 310px;
   text-align: center;
 }
-/* line 43, ../../app/stylesheets/partials/_feed.scss */
+/* line 44, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .logo .img {
   margin: auto;
 }
-/* line 48, ../../app/stylesheets/partials/_feed.scss */
+/* line 49, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .overlay {
   position: absolute;
   z-index: 999;
   width: 310px;
   height: 200px;
 }
-/* line 55, ../../app/stylesheets/partials/_feed.scss */
+/* line 56, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper #location_warning {
   padding-top: 20px;
 }
-/* line 64, ../../app/stylesheets/partials/_feed.scss */
+/* line 65, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper ol, #parapper.wrapper ul {
   list-style: none;
 }
-/* line 68, ../../app/stylesheets/partials/_feed.scss */
+/* line 69, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper #spinner {
   width: 310px;
   display: block;
@@ -136,7 +137,7 @@ body a {
   padding-bottom: 30px;
   padding-left: 140px;
 }
-/* line 76, ../../app/stylesheets/partials/_feed.scss */
+/* line 77, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper #map_canvas {
   height: 140px;
   margin-left: 0;
@@ -145,52 +146,52 @@ body a {
   border: 5px solid #ececec;
   width: 300px;
 }
-/* line 85, ../../app/stylesheets/partials/_feed.scss */
+/* line 86, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items {
   width: 310px;
   overflow: hidden;
 }
-/* line 89, ../../app/stylesheets/partials/_feed.scss */
+/* line 90, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items li {
   background-color: #ececec;
 }
-/* line 93, ../../app/stylesheets/partials/_feed.scss */
+/* line 94, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .caption {
   margin: 15px;
 }
-/* line 98, ../../app/stylesheets/partials/_feed.scss */
+/* line 99, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .image-post.foursquare .caption {
   margin-top: 10px;
   padding-bottom: 10px;
 }
-/* line 102, ../../app/stylesheets/partials/_feed.scss */
+/* line 103, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .image-post .caption {
   margin-top: -70px;
   padding-bottom: 30px;
 }
-/* line 108, ../../app/stylesheets/partials/_feed.scss */
+/* line 109, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .post-body {
   margin: 15px;
 }
-/* line 110, ../../app/stylesheets/partials/_feed.scss */
+/* line 111, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .post-body img {
   max-width: 280px;
   position: relative;
   top: -60px;
 }
-/* line 117, ../../app/stylesheets/partials/_feed.scss */
+/* line 118, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .make-me-famous {
   float: right;
 }
-/* line 121, ../../app/stylesheets/partials/_feed.scss */
+/* line 122, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .timestamp {
   padding-bottom: 10px;
 }
-/* line 128, ../../app/stylesheets/partials/_feed.scss */
+/* line 129, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .flickr .post-body img {
   min-width: 280px;
 }
-/* line 132, ../../app/stylesheets/partials/_feed.scss */
+/* line 133, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .title {
   font-size: 22px;
   padding: 10px 10px;
@@ -199,26 +200,26 @@ body a {
   z-index: 10;
   position: relative;
 }
-/* line 139, ../../app/stylesheets/partials/_feed.scss */
+/* line 140, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .title h3 {
   color: white;
   opacity: 1.0;
 }
-/* line 145, ../../app/stylesheets/partials/_feed.scss */
+/* line 146, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .share {
   padding: 20px 20px 100px 95px;
 }
-/* line 149, ../../app/stylesheets/partials/_feed.scss */
+/* line 150, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .share .facebook {
   float: left;
   width: 50px;
   padding-left: 20px;
 }
-/* line 155, ../../app/stylesheets/partials/_feed.scss */
+/* line 156, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .share .twitter {
   float: left;
 }
-/* line 159, ../../app/stylesheets/partials/_feed.scss */
+/* line 160, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper table {
   border-collapse: collapse;
   border-spacing: 0;
