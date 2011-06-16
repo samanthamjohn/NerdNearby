@@ -1,6 +1,7 @@
 require 'thread'
 Thread.abort_on_exception = true
 class FeedItemsController < ApplicationController
+  respond_to :html, :json
 
 def index
   tweets_thread = Thread.new{ call_twitter }
@@ -12,10 +13,18 @@ def index
   flickr_pictures = flickr_thread.value
   instagrams = instagram_thread.value
 
-  feed_items = (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
-  max_items = @mobile_request ? 19 : 49
-  @feed_items = feed_items[0..max_items].shuffle
-  render partial: "index", locals: {feed_items: @feed_items}, layout: false
+  respond_to do |format|
+      format.html do
+        feed_items = (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
+        max_items = @mobile_request ? 19 : 49
+        @feed_items = feed_items[0..max_items].shuffle
+        render partial: "index", locals: {feed_items: @feed_items}, layout: false
+      end
+      format.json do
+        feed_items = (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
+        render json: feed_items.to_json
+      end
+    end
 
 end
 
