@@ -10,5 +10,9 @@
     .tweet= raw(tweet[:text])
     = pretty_time(tweet[:time])
     .make-me-famous
+      %button.respond{"data-username" =>tweet[:user]}
+        = image_tag "twitterreply.png"
+        %span
+          Respond
       <a href="http://twitter.com/share" class="twitter-share-button" data-text='"RT @#{tweet[:user]} #{raw(tweet[:text])}" via ' data-count="none" data-url="http://nerdnearby.com" >Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 

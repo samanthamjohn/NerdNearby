@@ -136,3 +136,11 @@ function UTCToLocalTime(dayOfWeek, hour, minute, offset) {
 
   return dayOfWeek + " " + time;
 }
+
+$('.respond').live('click', function() {
+  var user = $(this).data("username");
+  var tweet = {text:"!! @"+user+" (found you via @nerdnearby)"};
+  var url = "http://twitter.com/intent/tweet?"+$.param(tweet);
+  newwindow=window.open(url,'name','height=420,width=550');
+  if (window.focus) {newwindow.focus()}
+});

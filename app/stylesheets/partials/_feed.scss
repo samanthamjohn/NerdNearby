@@ -13,7 +13,6 @@
 body {
   width: 100%;
   font-family: 'MuseoSlab500';
-
   a {
     color: $dark-blue;
     text-decoration: none;
@@ -117,6 +116,22 @@ body {
 
     .make-me-famous {
       float: right;
+      .respond {
+        background-color: #eff6fa;
+        border: 1px solid #9db9cb;
+        border-radius: 3px;
+        color: #186487;
+        padding: 2px;
+        margin: 0px 5px 0px 0px;
+        float: left;
+        cursor: pointer;
+        span{
+          margin-left: -5px;
+        }
+        img {
+          height: 12px;
+        }
+      }
     }
 
     .timestamp {
@@ -163,3 +178,5 @@ body {
   }
 
 }
+
+  
