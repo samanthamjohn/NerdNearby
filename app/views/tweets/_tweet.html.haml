@@ -5,10 +5,11 @@
         = image_tag "twitterfavicon.png"
         = "@#{tweet[:user]}"
   .post-body
-    = image_tag tweet[:profile_image]
+    = image_tag tweet[:image_tag]
   .caption
     .tweet= raw(tweet[:text])
-    = pretty_time(tweet[:time])
+    = pretty_time(tweet[:post_time])
+    .like= link_to "Like", "#", { "data-like" => tweet.to_json }
     .make-me-famous
       %button.respond{"data-username" =>tweet[:user]}
         = image_tag "twitterreply.png"

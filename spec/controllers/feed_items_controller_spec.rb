@@ -60,4 +60,8 @@ describe FeedItemsController do
     end
   end
 
+  describe "subject" do
+    
+  end
+
 end

@@ -91,6 +91,7 @@ body {
     }
 
     .caption {
+      overflow: hidden;
       margin: 15px;
     }
 
@@ -114,6 +115,11 @@ body {
       }
     }
 
+    .like {
+      float: right;
+      margin-left: 5px;
+      // background-image: ""
+    }
     .make-me-famous {
       float: right;
       .respond {

@@ -18,8 +18,8 @@ $(function() {
   var mapCanvas = $("#map_canvas");
 
   var getFeedResults = function(position, google) {
-    var lat = position.coords.latitude;
-    var lng = position.coords.longitude;
+    lat = position.coords.latitude;
+    lng = position.coords.longitude;
 
     var latlng = new google.maps.LatLng(lat,lng);
     var myOptions = {
@@ -143,4 +143,23 @@ $('.respond').live('click', function() {
   var url = "http://twitter.com/intent/tweet?"+$.param(tweet);
   newwindow=window.open(url,'name','height=420,width=550');
   if (window.focus) {newwindow.focus()}
+});
+
+$('.like').live('click', function(e) {
+  e.preventDefault();
+  var data = $(this).find("a").data('like');
+  $.extend(data, {
+    lat: lat,
+    lng: lng
+  })
+  var params = {
+    feed_item: data
+  }
+  $.ajax({
+    url: "feed_items",
+    type: "post",
+    data: params,
+    success: $(this).html("You liked this!")
+
+  });
 });

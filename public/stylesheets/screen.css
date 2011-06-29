@@ -157,33 +157,39 @@ body a {
 }
 /* line 93, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .caption {
+  overflow: hidden;
   margin: 15px;
 }
-/* line 98, ../../app/stylesheets/partials/_feed.scss */
+/* line 99, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .image-post.foursquare .caption {
   margin-top: 10px;
   padding-bottom: 10px;
 }
-/* line 102, ../../app/stylesheets/partials/_feed.scss */
+/* line 103, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .image-post .caption {
   margin-top: -70px;
   padding-bottom: 30px;
 }
-/* line 108, ../../app/stylesheets/partials/_feed.scss */
+/* line 109, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .post-body {
   margin: 15px;
 }
-/* line 110, ../../app/stylesheets/partials/_feed.scss */
+/* line 111, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .post-body img {
   max-width: 280px;
   position: relative;
   top: -60px;
 }
-/* line 117, ../../app/stylesheets/partials/_feed.scss */
+/* line 118, ../../app/stylesheets/partials/_feed.scss */
+#parapper.wrapper .feed-items .like {
+  float: right;
+  margin-left: 5px;
+}
+/* line 123, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .make-me-famous {
   float: right;
 }
-/* line 119, ../../app/stylesheets/partials/_feed.scss */
+/* line 125, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .make-me-famous .respond {
   background-color: #eff6fa;
   border: 1px solid #9db9cb;
@@ -194,23 +200,23 @@ body a {
   float: left;
   cursor: pointer;
 }
-/* line 128, ../../app/stylesheets/partials/_feed.scss */
+/* line 134, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .make-me-famous .respond span {
   margin-left: -5px;
 }
-/* line 131, ../../app/stylesheets/partials/_feed.scss */
+/* line 137, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .make-me-famous .respond img {
   height: 12px;
 }
-/* line 137, ../../app/stylesheets/partials/_feed.scss */
+/* line 143, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .timestamp {
   padding-bottom: 10px;
 }
-/* line 144, ../../app/stylesheets/partials/_feed.scss */
+/* line 150, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .flickr .post-body img {
   min-width: 280px;
 }
-/* line 148, ../../app/stylesheets/partials/_feed.scss */
+/* line 154, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .title {
   font-size: 22px;
   padding: 10px 10px;
@@ -219,26 +225,26 @@ body a {
   z-index: 10;
   position: relative;
 }
-/* line 155, ../../app/stylesheets/partials/_feed.scss */
+/* line 161, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .title h3 {
   color: white;
   opacity: 1.0;
 }
-/* line 161, ../../app/stylesheets/partials/_feed.scss */
+/* line 167, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .share {
   padding: 20px 20px 100px 95px;
 }
-/* line 165, ../../app/stylesheets/partials/_feed.scss */
+/* line 171, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .share .facebook {
   float: left;
   width: 50px;
   padding-left: 20px;
 }
-/* line 171, ../../app/stylesheets/partials/_feed.scss */
+/* line 177, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .share .twitter {
   float: left;
 }
-/* line 175, ../../app/stylesheets/partials/_feed.scss */
+/* line 181, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper table {
   border-collapse: collapse;
   border-spacing: 0;

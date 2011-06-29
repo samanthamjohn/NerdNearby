@@ -3,15 +3,16 @@
     .title.place-name
       %h3
         = image_tag "instagramfavicon.png"
-        - if instagram[:checkin_text].blank?
+        - if instagram[:text].blank?
           = "instagram post"
         - else
-          = raw(instagram[:checkin_text])
+          = raw(instagram[:text])
   .post-body
     = image_tag instagram[:image_tag]
   .checkin-text.caption
-    = instagram[:place_name]
+    = instagram[:name]
     = pretty_time(instagram[:time])
+    .like= link_to "Like", "#", { "data-like" => instagram.to_json }
     .make-me-famous
       <a href="http://twitter.com/share" class="twitter-share-button" data-url='nerdnearby.com' data-text="Found near me: #{instagram[:url]}" data-count="none" data-via="nerdnearby">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 

@@ -10,6 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20110629001420) do
+
+  create_table "feed_items", :force => true do |t|
+    t.string   "feed_item_type"
+    t.string   "type_id"
+    t.string   "url"
+    t.string   "text"
+    t.string   "user"
+    t.string   "image_tag"
+    t.float    "lat"
+    t.float    "lng"
+    t.time     "post_time"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
