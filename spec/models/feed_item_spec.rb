@@ -11,6 +11,12 @@ describe FeedItem do
       it "returns the item" do
         FeedItem.nearby(lat, lng).should include(feed_item)
       end
+      context "the item is more than 1 week old" do
+        it "should not return the item" do
+          old_feed_item = FeedItem.create(created_at: Date.today - 2.weeks, lat: lat, lng: lng)
+          FeedItem.nearby(lat, lng).should_not include(old_feed_item)
+        end
+      end
     end
 
     context "an item that is two miles away in any direction" do

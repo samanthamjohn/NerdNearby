@@ -1,21 +1,20 @@
 %li.flickr.image-post
-  %a{href: instagram[:url]}
+  %a{href: instagram.url}
     .title.place-name
       %h3
         = image_tag "flickrfavicon.png"
-        - if instagram[:text].blank?
+        - if instagram.text.blank?
           flickr post
         - else
-          = raw(instagram[:text])
+          = raw(instagram.text)
   .post-body
-    = image_tag instagram[:image_tag]
+    = image_tag instagram.image_tag
   .checkin-text.caption
-    = instagram[:place_name]
-    .like{ "data-like" => instagram.to_json }
-      - if(instagram[:id])
+    .like{ "data-like" => instagram.attributes.to_json }
+      - if(instagram.id)
         Someone liked this by you!
       - else
         = link_to "Like", "#"
     .make-me-famous
-      <a href="http://twitter.com/share" class="twitter-share-button" data-url='http://nerdnearby.com' data-text="Found near me: #{instagram[:url]}" data-count="none" data-via="nerdnearby">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <a href="http://twitter.com/share" class="twitter-share-button" data-url='http://nerdnearby.com' data-text="Found near me: #{instagram.url}" data-count="none" data-via="nerdnearby">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 

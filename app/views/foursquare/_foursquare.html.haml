@@ -1,15 +1,15 @@
 %li.foursquare.image-post
-  %a{href: tip[:url]}
+  %a{href: tip.url}
     .title.venue
       %h3
         = image_tag "foursquarefavicon.png"
-        = tip[:name]
+        = tip.name
   .caption
-    .text= raw(tip[:text])
-    .address= raw(tip[:address])
-    .time= pretty_time(tip[:time])
-    .like{ "data-like" => tip.to_json }
-      - if(tip[:id])
+    .text= raw(tip.text)
+    .address= raw(tip.address)
+    .time= pretty_time(tip.post_time)
+    .like{ "data-like" => tip.attributes.to_json }
+      - if(tip.id)
         Someone liked this by you!
       - else
         = link_to "Like", "#"

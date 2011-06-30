@@ -21,8 +21,6 @@ class FeedItemsController < ApplicationController
         @feed_items = feed_items[0..max_items].shuffle
         @feed_items.map!{|item| FeedItem.new(item) }
         @feed_items = favorite_feed_items + @feed_items
-        @feed_items.map!(&:attributes)
-        @feed_items = @feed_items.map{|feed_item| HashWithIndifferentAccess.new(feed_item)}
         render partial: "index", locals: {feed_items: @feed_items}, layout: false
       end
       format.json do
@@ -37,6 +35,11 @@ class FeedItemsController < ApplicationController
   end
 
   def create
+    params[:feed_item].each do |k, v|
+      if params[:feed_item][k] == "null"
+        params[:feed_item][k] = nil
+      end
+    end
     @feed_item = FeedItem.new(params[:feed_item])
     @feed_item.save
     respond_with @feed_item
