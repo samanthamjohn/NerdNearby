@@ -63,6 +63,7 @@ class FeedItemsController < ApplicationController
         distance = ""
       end
       tweets << {
+        type_id: tweet["id"],
         post_time: Time.parse(tweet["created_at"]),
         image_tag: tweet["profile_image_url"].sub(/_normal\.jpg/, "_reasonably_small.jpg"),
         text: tweet["text"],
@@ -81,6 +82,7 @@ class FeedItemsController < ApplicationController
     foursquare.venues.nearby(ll: "#{params[:lat]}, #{params[:lng]}").map do |venue|
       distance = venue.json["location"]["distance"]
       foursquare_venues.push({
+        type_id: venue.json["id"],
         name: venue.json["name"],
         text: "#{venue.stats["checkinsCount"]} check-ins",
         post_time: Time.now - (rand(60)).minutes,
@@ -96,6 +98,7 @@ class FeedItemsController < ApplicationController
   def call_instagram
     instagrams = Instagram.media_search(params[:lat], params[:lng]).collect do |instagram|
       {
+        type_id: instagram.id,
         post_time: Time.at(instagram.created_time.to_i),
         image_tag: instagram.images.low_resolution.url,
         name: instagram.location.name,
@@ -117,6 +120,7 @@ class FeedItemsController < ApplicationController
       # info = flickr.photos.getInfo({photo_id: flickr_photo.id, secret: flickr_photo.secret})
       # time: Time.parse(info.dates.try(:taken))
       {
+        type_id: flickr_photo.id,
         image_tag: FlickRaw.url_m(flickr_photo),
         feed_item_type: "flickr",
         text: flickr_photo.title,
