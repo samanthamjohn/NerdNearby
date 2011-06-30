@@ -147,7 +147,7 @@ $('.respond').live('click', function() {
 
 $('.like').live('click', function(e) {
   e.preventDefault();
-  var data = $(this).find("a").data('like');
+  var data = $(this).data('like');
   $.extend(data, {
     lat: lat,
     lng: lng

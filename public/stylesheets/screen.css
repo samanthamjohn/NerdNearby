@@ -184,12 +184,13 @@ body a {
 #parapper.wrapper .feed-items .like {
   float: right;
   margin-left: 5px;
+  color: #28658d;
 }
-/* line 123, ../../app/stylesheets/partials/_feed.scss */
+/* line 124, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .make-me-famous {
   float: right;
 }
-/* line 125, ../../app/stylesheets/partials/_feed.scss */
+/* line 126, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .make-me-famous .respond {
   background-color: #eff6fa;
   border: 1px solid #9db9cb;
@@ -200,23 +201,23 @@ body a {
   float: left;
   cursor: pointer;
 }
-/* line 134, ../../app/stylesheets/partials/_feed.scss */
+/* line 135, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .make-me-famous .respond span {
   margin-left: -5px;
 }
-/* line 137, ../../app/stylesheets/partials/_feed.scss */
+/* line 138, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .make-me-famous .respond img {
   height: 12px;
 }
-/* line 143, ../../app/stylesheets/partials/_feed.scss */
+/* line 144, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .feed-items .timestamp {
   padding-bottom: 10px;
 }
-/* line 150, ../../app/stylesheets/partials/_feed.scss */
+/* line 151, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .flickr .post-body img {
   min-width: 280px;
 }
-/* line 154, ../../app/stylesheets/partials/_feed.scss */
+/* line 155, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .title {
   font-size: 22px;
   padding: 10px 10px;
@@ -225,26 +226,26 @@ body a {
   z-index: 10;
   position: relative;
 }
-/* line 161, ../../app/stylesheets/partials/_feed.scss */
+/* line 162, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .title h3 {
   color: white;
   opacity: 1.0;
 }
-/* line 167, ../../app/stylesheets/partials/_feed.scss */
+/* line 168, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .share {
   padding: 20px 20px 100px 95px;
 }
-/* line 171, ../../app/stylesheets/partials/_feed.scss */
+/* line 172, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .share .facebook {
   float: left;
   width: 50px;
   padding-left: 20px;
 }
-/* line 177, ../../app/stylesheets/partials/_feed.scss */
+/* line 178, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper .share .twitter {
   float: left;
 }
-/* line 181, ../../app/stylesheets/partials/_feed.scss */
+/* line 182, ../../app/stylesheets/partials/_feed.scss */
 #parapper.wrapper table {
   border-collapse: collapse;
   border-spacing: 0;

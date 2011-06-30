@@ -42,6 +42,10 @@ class FeedItemsController < ApplicationController
     respond_with @feed_item
   end
 
+  def show
+
+  end
+
   def call_twitter
     from_users = []
 
