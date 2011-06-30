@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110629001420) do
     t.string   "text"
     t.string   "user"
     t.string   "image_tag"
+    t.string   "address"
     t.float    "lat"
     t.float    "lng"
     t.time     "post_time"

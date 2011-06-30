@@ -11,7 +11,11 @@
     = image_tag instagram[:image_tag]
   .checkin-text.caption
     = instagram[:place_name]
-    .like= link_to "Like", "#", { "data-like" => instagram.to_json }
+    .like{ "data-like" => instagram.to_json }
+      - if(instagram[:id])
+        Someone liked this by you!
+      - else
+        = link_to "Like", "#"
     .make-me-famous
       <a href="http://twitter.com/share" class="twitter-share-button" data-url='http://nerdnearby.com' data-text="Found near me: #{instagram[:url]}" data-count="none" data-via="nerdnearby">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 

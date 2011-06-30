@@ -9,7 +9,12 @@
   .caption
     .tweet= raw(tweet[:text])
     = pretty_time(tweet[:post_time])
-    .like= link_to "Like", "#", { "data-like" => tweet.to_json }
+    .like{ "data-like" => tweet.to_json }
+      - if(tweet[:id])
+        Someone liked this by you!
+      - else
+        = link_to "Like", "#"
+
     .make-me-famous
       %button.respond{"data-username" =>tweet[:user]}
         = image_tag "twitterreply.png"

@@ -7,6 +7,7 @@ class CreateFeedItems < ActiveRecord::Migration
       t.string  :text
       t.string  :user
       t.string  :image_tag
+      t.string  :address
       t.float   :lat
       t.float   :lng
       t.time    :post_time

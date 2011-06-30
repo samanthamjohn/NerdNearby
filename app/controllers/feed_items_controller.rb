@@ -8,7 +8,7 @@ class FeedItemsController < ApplicationController
     foursquare_thread = Thread.new{ call_foursquare }
     flickr_thread = Thread.new{ call_flickr }
     instagram_thread = Thread.new{ call_instagram }
-    favorite_feed_items = FeedItem.nearby(params[:lat].to_f, params[:lng].to_f).map(&:attributes)
+    favorite_feed_items = FeedItem.nearby(params[:lat].to_f, params[:lng].to_f)
     tweets = tweets_thread.value
     foursquare_venues = foursquare_thread.value
     flickr_pictures = flickr_thread.value
@@ -19,7 +19,10 @@ class FeedItemsController < ApplicationController
         feed_items = (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
         max_items = @mobile_request ? 19 : 49
         @feed_items = feed_items[0..max_items].shuffle
+        @feed_items.map!{|item| FeedItem.new(item) }
         @feed_items = favorite_feed_items + @feed_items
+        @feed_items.map!(&:attributes)
+        @feed_items = @feed_items.map{|feed_item| HashWithIndifferentAccess.new(feed_item)}
         render partial: "index", locals: {feed_items: @feed_items}, layout: false
       end
       format.json do
@@ -71,12 +74,11 @@ class FeedItemsController < ApplicationController
     foursquare.venues.nearby(ll: "#{params[:lat]}, #{params[:lng]}").map do |venue|
       distance = venue.json["location"]["distance"]
       foursquare_venues.push({
-        venue: venue.json["name"],
+        name: venue.json["name"],
         text: "#{venue.stats["checkinsCount"]} check-ins",
         post_time: Time.now - (rand(60)).minutes,
         url: "http://foursquare.com",
         feed_item_type: "foursquare",
-        checkins: venue.stats["checkinsCount"],
         address: venue.location["address"]
       })
     end

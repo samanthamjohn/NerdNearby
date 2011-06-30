@@ -25,6 +25,7 @@ describe FeedItemsController do
 
       it "should return only 20 photos" do
         FlickRaw.stubs(:url).returns("url.com")
+        FlickRaw.stubs(:url_m).returns("url.com")
         FlickRaw.stubs(:url_short).returns("short_url.com")
         one_hundred_photos = []
         100.times do
@@ -61,7 +62,7 @@ describe FeedItemsController do
   end
 
   describe "subject" do
-    
+
   end
 
 end
