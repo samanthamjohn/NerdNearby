@@ -8,7 +8,7 @@ class FeedItemsController < ApplicationController
     foursquare_thread = Thread.new{ call_foursquare }
     flickr_thread = Thread.new{ call_flickr }
     instagram_thread = Thread.new{ call_instagram }
-    favorite_feed_items = FeedItem.nearby(params[:lat].to_f, params[:lng].to_f)
+    favorite_feed_items = FeedItem.nearby(params[:lat].to_f, params[:lng].to_f)[0..5]
     tweets = tweets_thread.value
     foursquare_venues = foursquare_thread.value
     flickr_pictures = flickr_thread.value
@@ -120,7 +120,7 @@ class FeedItemsController < ApplicationController
       # info = flickr.photos.getInfo({photo_id: flickr_photo.id, secret: flickr_photo.secret})
       # time: Time.parse(info.dates.try(:taken))
       {
-        type_id: flickr_photo.id,
+        type_id: FlickRaw.id(flickr_photo),
         image_tag: FlickRaw.url_m(flickr_photo),
         feed_item_type: "flickr",
         text: flickr_photo.title,

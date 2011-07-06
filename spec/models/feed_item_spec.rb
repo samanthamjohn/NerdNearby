@@ -5,17 +5,18 @@ describe FeedItem do
     let(:lat) { 40.714269 }
     let(:lng) { -74.005972 }
     let(:two_miles) { 0.028}
-    let(:feed_item) { FeedItem.create(lat: lat, lng: lng) }
+    let!(:feed_item) { FeedItem.create(lat: lat, lng: lng) }
 
     context "an item where the coordinates are the same" do
       it "returns the item" do
         FeedItem.nearby(lat, lng).should include(feed_item)
       end
-      context "the item is more than 1 week old" do
-        it "should not return the item" do
-          old_feed_item = FeedItem.create(created_at: Date.today - 2.weeks, lat: lat, lng: lng)
-          FeedItem.nearby(lat, lng).should_not include(old_feed_item)
-        end
+
+      it "should return the items in reverse chronological order" do
+        feed_item_older = FeedItem.create(lat: lat, lng: lng, created_at: Date.today - 1.days)
+        f = FeedItem.nearby(lat, lng)
+        f.first.should == feed_item
+        f.last.should == feed_item_older
       end
     end
 

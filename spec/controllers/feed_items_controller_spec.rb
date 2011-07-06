@@ -27,8 +27,9 @@ describe FeedItemsController do
         FlickRaw.stubs(:url).returns("url.com")
         FlickRaw.stubs(:url_m).returns("url.com")
         FlickRaw.stubs(:url_short).returns("short_url.com")
+        FlickRaw.stubs(:id).returns("3")
         one_hundred_photos = []
-        100.times do
+        50.times do
           one_hundred_photos.push(stub(title: "my cool photo"))
         end
         stub_photos = stub(:stub_photos)

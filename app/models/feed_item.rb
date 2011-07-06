@@ -5,6 +5,7 @@ class FeedItem < ActiveRecord::Base
     lat_max = lat + TWO_MILES
     lng_min = lng - TWO_MILES
     lng_max = lng + TWO_MILES
-    FeedItem.where("lat >= ? AND lat <= ? AND lng >= ? AND lng <= ? AND created_at > ?", lat_min, lat_max, lng_min, lng_max, Date.today - 1.week)
+    FeedItem.find_by_sql(["SELECT * FROM feed_items WHERE lat >= ? AND lat <= ? AND lng >= ? AND lng <= ?  ORDER BY 'created_at' DESC", lat_min, lat_max, lng_min, lng_max])
+
   end
 end
