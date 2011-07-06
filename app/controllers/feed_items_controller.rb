@@ -120,7 +120,7 @@ class FeedItemsController < ApplicationController
       # info = flickr.photos.getInfo({photo_id: flickr_photo.id, secret: flickr_photo.secret})
       # time: Time.parse(info.dates.try(:taken))
       {
-        type_id: FlickRaw.id(flickr_photo),
+        type_id: flickr_photo.id,
         image_tag: FlickRaw.url_m(flickr_photo),
         feed_item_type: "flickr",
         text: flickr_photo.title,
