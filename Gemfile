@@ -7,7 +7,7 @@ gem 'heroku'
 gem 'instagram'
 gem 'jammit'
 gem 'jquery-rails'
-gem 'quimby', require: 'foursquare', git: "git://github.com/smj2118/quimby.git"
+gem 'quimby', require: 'foursquare', git: "git://github.com/samjohn/quimby.git"
 gem 'rails', '3.0.7'
 gem 'rake', '~> 0.8.7'
 gem 'sqlite3'

@@ -8,13 +8,9 @@
 .overlay
 #map_canvas{ "data-lat" => params[:lat], "data-lng" => params[:lng] }
 
-.welcome.feed-items
-
-  - if !(params[:lat])
-    %h2#location_warning Do we keep spinning?  Make sure you've allowed your browser to share your location!
-
-  #spinner
-    = image_tag 'not_this_spinner.gif'
+.feed-items
+  = render partial: "index", locals: {feed_items: @feed_items}
+  
 %p
   Reach us on twitter: 
   = link_to "@nerdnearby", "http://twitter.com/nerdnearby"

@@ -61,7 +61,12 @@ describe FeedItemsController do
     end
   end
 
-  describe "subject" do
+  describe "global" do
+    it "should show all feed items that have been liked anywhere by anyone" do
+      feed_item = FeedItem.create!
+      get :global
+      assigns(:feed_items).should == [feed_item]
+    end
 
   end
 

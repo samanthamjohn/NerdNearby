@@ -129,7 +129,9 @@ class FeedItemsController < ApplicationController
       }
     end
     flickr_pictures ||= []
-    flickr_pictures[0..19]
-
+    flickr_pictures[0..19]  
+  end
+  def global
+    @feed_items = FeedItem.all
   end
 end

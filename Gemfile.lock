@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/smj2118/quimby.git
+  remote: git://github.com/samjohn/quimby.git
   revision: 83f39d7b8dd331ad6fcaf9dba9920760d6951f34
   specs:
     quimby (0.4.3)
