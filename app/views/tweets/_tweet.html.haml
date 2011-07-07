@@ -9,11 +9,7 @@
   .caption
     .tweet= raw(tweet.text)
     = pretty_time(tweet.post_time)
-    .like{ "data-like" => tweet.attributes.to_json }
-      - if(tweet.id)
-        Someone liked this by you!
-      - else
-        = link_to "Like", "#"
+    = render "feed_items/like", feed_item: tweet
 
     .make-me-famous
       <a href="http://twitter.com/share" class="twitter-share-button" data-text='"RT @#{tweet.user} #{raw(tweet.text)}" via ' data-count="none" data-url="http://nerdnearby.com" >Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>

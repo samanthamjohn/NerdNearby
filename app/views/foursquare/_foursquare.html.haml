@@ -8,10 +8,4 @@
     .text= raw(tip.text)
     .address= raw(tip.address)
     .time= pretty_time(tip.post_time)
-    .like{ "data-like" => tip.attributes.to_json }
-      - if(tip.id)
-        Someone liked this by you!
-      - else
-        = link_to "Like", "#"
-
-
+    = render "feed_items/like", feed_item: tip

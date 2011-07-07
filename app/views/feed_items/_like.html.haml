@@ -1,0 +1,7 @@
+.like{ "data-like" => feed_item.attributes.to_json }
+  - if(feed_item.id)
+    Someone liked this by you!
+  - else
+    = link_to "Like", "#"
+
+
