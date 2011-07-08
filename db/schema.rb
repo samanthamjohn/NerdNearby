@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20110629001420) do
     t.float    "lng"
     t.time     "post_time"
     t.string   "name"
+    t.integer  "likes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

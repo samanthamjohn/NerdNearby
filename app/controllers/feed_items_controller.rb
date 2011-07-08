@@ -34,6 +34,13 @@ class FeedItemsController < ApplicationController
     @feed_item = FeedItem.new(params[:feed_item])
   end
 
+  def update
+    @feed_item = FeedItem.find(params[:id])
+    feed_item_params = params[:feed_item].merge(likes: @feed_item.likes + 1)
+    @feed_item.update_attributes(feed_item_params)
+    respond_with @feed_item
+  end
+
   def create
     params[:feed_item].each do |k, v|
       if params[:feed_item][k] == "null"
@@ -41,12 +48,9 @@ class FeedItemsController < ApplicationController
       end
     end
     @feed_item = FeedItem.new(params[:feed_item])
+    @feed_item.likes = 1
     @feed_item.save
     respond_with @feed_item
-  end
-
-  def show
-
   end
 
   def call_twitter

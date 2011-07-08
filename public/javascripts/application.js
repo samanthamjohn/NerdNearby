@@ -148,6 +148,8 @@ $('.respond').live('click', function() {
 $('.like').live('click', function(e) {
   e.preventDefault();
   var data = $(this).data('like');
+  var url = $(this).data('url');
+  var action = $(this).data('action');
   $.extend(data, {
     lat: lat,
     lng: lng
@@ -156,8 +158,8 @@ $('.like').live('click', function(e) {
     feed_item: data
   }
   $.ajax({
-    url: "feed_items",
-    type: "post",
+    url: url,
+    type: action,
     data: params,
     success: $(this).html("You liked this!")
 

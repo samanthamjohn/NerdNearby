@@ -1,7 +1,15 @@
-.like{ "data-like" => feed_item.attributes.to_json }
-  - if(feed_item.id)
-    Someone liked this by you!
-  - else
-    = link_to "Like", "#"
+- if(feed_item.id)
+  - url = feed_item_path(feed_item)
+  - action = "PUT"
+- else
+  - url = feed_items_path
+  - action = "POST"
+.like{ "data-like" => feed_item.attributes.to_json, "data-url" => url, "data-action" => action}
+  = link_to "Like", "#"
+- if(feed_item.id)
+  - if feed_item.likes == 1
+    #like-count== #{feed_item.likes} like
+  -else 
+    #like-count== #{feed_item.likes} likes
 
 
