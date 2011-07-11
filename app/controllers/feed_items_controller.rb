@@ -4,15 +4,37 @@ class FeedItemsController < ApplicationController
   respond_to :html, :json
 
   def index
-    tweets_thread = Thread.new{ call_twitter }
     foursquare_thread = Thread.new{ call_foursquare }
     flickr_thread = Thread.new{ call_flickr }
     instagram_thread = Thread.new{ call_instagram }
     favorite_feed_items = FeedItem.nearby(params[:lat].to_f, params[:lng].to_f)[0..5]
-    tweets = tweets_thread.value
-    foursquare_venues = foursquare_thread.value
-    flickr_pictures = flickr_thread.value
-    instagrams = instagram_thread.value
+    begin
+      tweets = tweets_thread.value
+    rescue
+      puts "twitter unavailable"
+      tweets = []
+    end
+
+    begin
+      foursquare_venues = foursquare_thread.value
+    rescue
+      puts "foursquare unavailable"
+      foursquare_venues = []
+    end
+
+    begin
+      flickr_pictures = flickr_thread.value
+    rescue
+      puts "flickr unavailable"
+      flick_pictures = []
+    end
+
+    begin
+      instagrams = instagram_thread.value
+    rescue
+      puts "instagram unavailable"
+      instagrams = []
+    end
 
     respond_to do |format|
       format.html do
