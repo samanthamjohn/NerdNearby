@@ -4,10 +4,26 @@ class FeedItemsController < ApplicationController
   respond_to :html, :json
 
   def index
-    foursquare_thread = Thread.new{ call_foursquare }
-    flickr_thread = Thread.new{ call_flickr }
-    instagram_thread = Thread.new{ call_instagram }
-    favorite_feed_items = FeedItem.nearby(params[:lat].to_f, params[:lng].to_f)[0..5]
+    begin
+      foursquare_thread = Thread.new{ call_foursquare }
+    rescue
+      puts "foursquare thread down"
+    end
+
+    begin
+      flickr_thread = Thread.new{ call_flickr }
+    rescue
+      puts 'flickr thread down'
+    end
+
+    begin
+      instagram_thread = Thread.new{ call_instagram }
+    rescue
+      puts 'instagram thread down'
+    end
+
+    favorite_feed_items = FeedItem.nearby(params[:lat].to_f, params[:lng].to_f)[0...5]
+
     begin
       tweets = tweets_thread.value
     rescue
