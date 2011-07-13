@@ -5,6 +5,12 @@ class FeedItemsController < ApplicationController
 
   def index
     begin
+      tweets_thread = Thread.new{ call_twitter}
+    rescue
+      puts "twitter thread down"
+    end
+    
+    begin
       foursquare_thread = Thread.new{ call_foursquare }
     rescue
       puts "foursquare thread down"
@@ -14,7 +20,7 @@ class FeedItemsController < ApplicationController
       flickr_thread = Thread.new{ call_flickr }
     rescue
       puts 'flickr thread down'
-    end
+    end  
 
     begin
       instagram_thread = Thread.new{ call_instagram }
@@ -32,7 +38,7 @@ class FeedItemsController < ApplicationController
     end
 
     begin
-      foursquare_venues = foursquare_thread.value
+      foursquare_venues = foursquare_thread.value 
     rescue
       puts "foursquare unavailable"
       foursquare_venues = []
