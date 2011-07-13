@@ -4,7 +4,7 @@
 - else
   - url = feed_items_path
   - action = "POST"
-.like{ "data-like" => feed_item.attributes.to_json, "data-url" => url, "data-action" => action}
+.like{ "data-like" => (feed_item.attributes.reject {|key,value| value.blank?}).to_json, "data-url" => url, "data-action" => action}
   = link_to "Like", "#"
 - if(feed_item.id)
   - if feed_item.likes == 1
