@@ -28,7 +28,7 @@ class FeedItemsController < ApplicationController
       puts 'instagram thread down'
     end
 
-    favorite_feed_items = FeedItem.nearby(params[:lat].to_f, params[:lng].to_f)[0...5]
+    favorite_feed_items = FeedItem.nearby(params[:lat].to_f, params[:lng].to_f)[0...3]
 
     begin
       tweets = tweets_thread.value
