@@ -1,0 +1,1 @@
+Vanity.playground.collecting = true
