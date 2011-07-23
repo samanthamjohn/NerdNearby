@@ -9,7 +9,7 @@ Scenario: Smoke Test
   Then I should see "nerd"
   Then I should see "nearby"
   And I sleep 6 seconds
-  Then I should see "See original"
+  Then I should see "Like"
 
 @javascript
 Scenario: Smoke Test Local
@@ -17,6 +17,6 @@ Scenario: Smoke Test Local
   Then I should see "nerd"
   Then I should see "nearby"
   And I sleep 6 seconds
-  Then I should see "See original"
+  Then I should see "Like"
 
 

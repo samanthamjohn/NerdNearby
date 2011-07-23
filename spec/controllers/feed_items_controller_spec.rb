@@ -9,9 +9,8 @@ describe FeedItemsController do
         controller.stubs(:call_flickr).returns([])
       end
       it "should call twitter" do
-        lat = 1
-        lng = 2
-        Twitter::Search.any_instance.expects(:geocode).with(lat, lng, "1mi")
+        FeedItem.should_receive(:twitter_nearby).and_return([])
+        get :index, :lat => 1, :lng => 2
       end
     end
 

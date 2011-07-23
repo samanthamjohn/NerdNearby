@@ -28,7 +28,7 @@ class FeedItemsController < ApplicationController
       puts 'instagram thread down'
     end
 
-    favorite_feed_items = FeedItem.nearby(params[:lat].to_f, params[:lng].to_f)[0...3]
+    favorite_feed_items = FeedItem.saved_nearby(params[:lat].to_f, params[:lng].to_f)[0...3]
 
     begin
       tweets = tweets_thread.value
@@ -66,7 +66,7 @@ class FeedItemsController < ApplicationController
         feed_items = (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
         max_items = @mobile_request ? 19 : 49
         @feed_items = feed_items[0..max_items].shuffle
-        @feed_items.map!{|item| FeedItem.new(item) }
+        @feed_items.map!{|item| item.is_a?(FeedItem) ? item : FeedItem.new(item)  }
         @feed_items = favorite_feed_items + @feed_items
         render partial: "index", locals: {feed_items: @feed_items}, layout: false
       end
@@ -103,29 +103,7 @@ class FeedItemsController < ApplicationController
   end
 
   def call_twitter
-    from_users = []
-
-    tweets = []
-    twit = JSON.parse(Net::HTTP.get(URI.parse("http://search.twitter.com/search.json?geocode=#{params[:lat]},#{params[:lng]},1mi")))["results"]
-    twit.try(:reject) {|tweet| tweet["text"].try(:first) == "@" || tweet["text"].include?("http")}.try(:each) do |tweet|
-      next if from_users.include?(tweet["from_user"])
-      from_users << tweet["from_user"]
-      if tweet["geo"]
-        distance = tweet["geo"]["coordinates"]
-      else
-        distance = ""
-      end
-      tweets << {
-        type_id: tweet["id"],
-        post_time: Time.parse(tweet["created_at"]),
-        image_tag: tweet["profile_image_url"].sub(/_normal\.jpg/, "_reasonably_small.jpg"),
-        text: tweet["text"],
-        user: tweet["from_user"],
-        url: "http://twitter.com/#{tweet["from_user"]}/status/#{tweet["id"]}",
-        feed_item_type: "tweet"
-      }
-    end
-    tweets ||= []
+    FeedItem.twitter_nearby(params[:lat], params[:lng])
   end
 
 
@@ -133,7 +111,6 @@ class FeedItemsController < ApplicationController
     foursquare = Foursquare::Base.new(ENV["FOURSQUARE_CLIENT_ID"], ENV["FOURSQUARE_CLIENT_SECRET"])
     foursquare_venues = []
     foursquare.venues.nearby(ll: "#{params[:lat]}, #{params[:lng]}").map do |venue|
-      distance = venue.json["location"]["distance"]
       foursquare_venues.push({
         type_id: venue.json["id"],
         name: venue.json["name"],
