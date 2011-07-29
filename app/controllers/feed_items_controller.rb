@@ -1,5 +1,6 @@
 require 'thread'
 Thread.abort_on_exception = true
+require 'feed_item'
 class FeedItemsController < ApplicationController
   respond_to :html, :json
 
@@ -72,6 +73,7 @@ class FeedItemsController < ApplicationController
       end
       format.json do
         feed_items = favorite_feed_items + (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
+        feed_items.map!{|item| item.is_a?(FeedItem) ? item : FeedItem.new(item)  }
         render json: feed_items.to_json
       end
     end
