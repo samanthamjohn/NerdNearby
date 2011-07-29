@@ -112,11 +112,12 @@ class FeedItemsController < ApplicationController
   def call_foursquare
     foursquare = Foursquare::Base.new(ENV["FOURSQUARE_CLIENT_ID"], ENV["FOURSQUARE_CLIENT_SECRET"])
     foursquare_venues = []
-    foursquare.venues.nearby(ll: "#{params[:lat]}, #{params[:lng]}").map do |venue|
+    foursquare.venues.nearby(ll: "#{params[:lat]}, #{params[:lng]}", limit: 50).map do |venue|
+      next if venue.json["hereNow"]["count"].to_i == 0
       foursquare_venues.push({
         type_id: venue.json["id"],
         name: venue.json["name"],
-        text: "#{venue.stats["checkinsCount"]} check-ins",
+        text: "#{venue.stats["checkinsCount"]} check-ins. #{venue.json["hereNow"]["count"]} here now.",
         post_time: Time.now - (rand(60)).minutes,
         url: "http://foursquare.com",
         feed_item_type: "foursquare",
