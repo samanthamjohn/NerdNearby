@@ -29,4 +29,9 @@ class FeedItem < ActiveRecord::Base
     end
     tweets.map {|tweet| FeedItem.new(tweet) }
   end
+
+  def as_json(options={})
+    self.attributes.reject{|key,value| value.nil? }
+  end
+
 end

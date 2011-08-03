@@ -71,7 +71,7 @@ class FeedItemsController < ApplicationController
       format.json do
         feed_items = favorite_feed_items + (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
         feed_items.map!{|item| item.is_a?(FeedItem) ? item : FeedItem.new(item)  }
-        render json: feed_items.to_json
+        render json: feed_items
       end
     end
   end
