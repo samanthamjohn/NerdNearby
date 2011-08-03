@@ -1,9 +1,9 @@
 development:
   adapter: redis
-  host: localhost
+  host: redis://evanfarrar:0612ac596d510b2f1c8606aef9178cd8@icefish.redistogo.com:9201/
 test:
   adapter: redis
-  host: localhost
+  host: redis://evanfarrar:0612ac596d510b2f1c8606aef9178cd8@icefish.redistogo.com:9201/
 staging:
   adapter: redis
   host: redis://evanfarrar:0612ac596d510b2f1c8606aef9178cd8@icefish.redistogo.com:9201
