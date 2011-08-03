@@ -6,4 +6,3 @@ Locations::Application.initialize!
 Locations::Application.configure do
   config.gem "jammit"
 end
-

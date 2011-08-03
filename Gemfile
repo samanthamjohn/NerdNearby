@@ -12,7 +12,6 @@ gem 'rails', '3.0.7'
 gem 'rake', '~> 0.8.7'
 gem 'sqlite3'
 gem 'twitter'
-gem 'vanity'
 
 group :development, :test do
   gem 'factory_girl'

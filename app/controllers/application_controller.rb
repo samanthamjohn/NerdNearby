@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  use_vanity
-
   protect_from_forgery
 
   before_filter(:set_mobile_request)

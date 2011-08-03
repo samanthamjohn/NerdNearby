@@ -10,7 +10,7 @@ class FeedItemsController < ApplicationController
     rescue
       puts "twitter thread down"
     end
-
+    
     begin
       foursquare_thread = Thread.new{ call_foursquare }
     rescue
@@ -21,7 +21,7 @@ class FeedItemsController < ApplicationController
       flickr_thread = Thread.new{ call_flickr }
     rescue
       puts 'flickr thread down'
-    end
+    end  
 
     begin
       instagram_thread = Thread.new{ call_instagram }
@@ -39,7 +39,7 @@ class FeedItemsController < ApplicationController
     end
 
     begin
-      foursquare_venues = foursquare_thread.value
+      foursquare_venues = foursquare_thread.value 
     rescue
       puts "foursquare unavailable"
       foursquare_venues = []
@@ -61,9 +61,6 @@ class FeedItemsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        logger.info("TESTING")
-        logger.info(ab_test(:sort_options))
-
         feed_items = (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
         max_items = @mobile_request ? 19 : 49
         @feed_items = feed_items[0..max_items].shuffle
@@ -84,7 +81,6 @@ class FeedItemsController < ApplicationController
   end
 
   def update
-    track! :interaction
     @feed_item = FeedItem.find(params[:id])
     feed_item_params = params[:feed_item].merge(likes: @feed_item.likes + 1)
     @feed_item.update_attributes(feed_item_params)
@@ -92,7 +88,6 @@ class FeedItemsController < ApplicationController
   end
 
   def create
-    track! :interaction
     params[:feed_item].each do |k, v|
       if params[:feed_item][k] == "null"
         params[:feed_item][k] = nil
@@ -162,7 +157,7 @@ class FeedItemsController < ApplicationController
       }
     end
     flickr_pictures ||= []
-    flickr_pictures[0..19]
+    flickr_pictures[0..19]  
   end
   def global
     @feed_items = FeedItem.all

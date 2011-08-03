@@ -1,7 +1,6 @@
 Locations::Application.routes.draw do
   get "welcome/index"
 
-  match '/vanity(/:action(/:id(.:format)))', :controller => :vanity
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
