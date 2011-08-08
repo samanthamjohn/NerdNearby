@@ -5,14 +5,14 @@
       == window.mobileRequest = #{@mobile_request.to_s};
     %script{ type:"text/javascript" }
       var _sf_startpt=(new Date()).getTime()
-    %title Nerd Nearby - Aggregating social media near you
+    %title Nerd Nearby - See everything going on around you.
     = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
     = csrf_meta_tag
     = include_stylesheets :common
     = include_javascripts :workspace
 
     %meta{name:"viewport", content: "initial-scale=1.0, user-scalable=no"}
-    <meta property="og:title" content="Nerd Nearby - Aggregating social media near you" />
+    <meta property="og:title" content="Nerd Nearby - See everything going on around you." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://nerdnearby.com" />
     <meta property="og:image" content="http://nerdnearby.com/images/glasses.png" />
