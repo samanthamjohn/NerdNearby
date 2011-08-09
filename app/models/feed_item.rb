@@ -34,4 +34,29 @@ class FeedItem < ActiveRecord::Base
     self.attributes.reject{|key,value| value.nil? }
   end
 
+  def self.foursquare_nearby(lat, lng)
+    
+    foursquare_venues = []
+    venues = foursquare_api(ll: "#{lat}, #{lng}", limit: 50)
+    venues = venues.sort {|a,b| a.json["hereNow"]["count"] <=> b.json["hereNow"]["count"]}.reverse
+    venues.map do |venue| 
+      
+      foursquare_venues.push({
+        type_id: venue.json["id"],
+        name: venue.json["name"],
+        text: "#{venue.stats["checkinsCount"]} check-ins. #{venue.json["hereNow"]["count"]} here now.",
+        post_time: Time.now - (rand(60)).minutes,
+        url: "http://foursquare.com",
+        feed_item_type: "foursquare",
+        address: venue.location["address"]
+      })
+    end
+    foursquare_venues ||= []
+    foursquare_venues[0..10]
+  end
+  
+  def self.foursquare_api(options={})
+    foursquare = Foursquare::Base.new(ENV["FOURSQUARE_CLIENT_ID"], ENV["FOURSQUARE_CLIENT_SECRET"])
+    foursquare.venues.nearby options
+  end
 end

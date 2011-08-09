@@ -29,6 +29,45 @@ describe FeedItem do
       item.feed_item_type.should == "tweet"
     end
   end
+  
+  
+  describe "#foursquare_nearby" do
+    it "should call foursquare" 
+    context "when there are more than eight venues with people at them" do
+      it "returns them all" do
+        lat=1
+        lng=2
+        json =     {"id"=>"4c09b0a86071a593da72de32", "name"=>"Xiloca", "contact"=>{}, "location"=>{"address"=>"Elizabeth", "crossStreet"=>"Kenmare", "city"=>"New York", "state"=>"New York", "lat"=>40.7142691, "lng"=>-74.0059729, "distance"=>0}, "categories"=>[], "verified"=>false, "stats"=>{"checkinsCount"=>3, "usersCount"=>3}, "hereNow"=>{"count"=>10}}
+        venues = ([json]*20).map {|json|Foursquare::Venue.new(nil, json)} 
+        FeedItem.stubs(:foursquare_api).returns(venues)
+      
+      
+        FeedItem.foursquare_nearby(lat,lng).length.should == 11
+      end
+
+    end
+
+    context "when there are less than eight venues with people at them" do
+      it "still returns eight items" do
+        lat=1
+        lng=2
+        venues_json =     {"id"=>"4c09b0a86071a593da72de32", "name"=>"Xiloca", "contact"=>{}, "location"=>{"address"=>"Elizabeth", "crossStreet"=>"Kenmare", "city"=>"New York", "state"=>"New York", "lat"=>40.7142691, "lng"=>-74.0059729, "distance"=>0}, "categories"=>[], "verified"=>false, "stats"=>{"checkinsCount"=>3, "usersCount"=>3}, "hereNow"=>{"count"=>0}}
+        venues_with_people_json =     {"id"=>"4c09b0a86071a593da72de32", "name"=>"Xiloca", "contact"=>{}, "location"=>{"address"=>"Elizabeth", "crossStreet"=>"Kenmare", "city"=>"New York", "state"=>"New York", "lat"=>40.7142691, "lng"=>-74.0059729, "distance"=>0}, "categories"=>[], "verified"=>false, "stats"=>{"checkinsCount"=>3, "usersCount"=>3}, "hereNow"=>{"count"=>2}}        
+        venues = ([venues_json]*20+[venues_with_people_json]*4).map {|json|Foursquare::Venue.new(nil, json)} 
+        FeedItem.stubs(:foursquare_api).returns(venues)
+            
+        FeedItem.foursquare_nearby(lat,lng).length.should == 11
+        expected_result = (["3 check-ins. 2 here now."]*4+["3 check-ins. 0 here now."]*7)
+        
+        FeedItem.foursquare_nearby(lat,lng).map{|feed_item| feed_item[:text]}.should == expected_result
+        
+      end
+    end
+  end
+  
+      
+      
+      
  #describe "#nearby" do
 
  #  describe "#flickr_nearby" do
