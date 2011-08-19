@@ -2,6 +2,16 @@ require 'spec_helper'
 
 describe FeedItemsController do
   describe "#index" do
+    it "loads liked items" do
+      controller.stubs(:call_foursquare).returns([])
+      controller.stubs(:call_instagram).returns([])
+      controller.stubs(:call_flickr).returns([])
+      controller.stubs(:call_twitter).returns([])
+      unliked_feed_item = FeedItem.create({:likes => 0, :lat => 1, :lng => 2})
+      liked_feed_item = FeedItem.create({:likes => 1, :lat => 1, :lng => 2})
+      get :index, :lat => 1, :lng => 2    
+      assigns(:feed_items).should==[liked_feed_item]
+    end
     describe "#call_twitter" do
       before do
         controller.stubs(:call_foursquare).returns([])
@@ -62,7 +72,7 @@ describe FeedItemsController do
 
   describe "global" do
     it "should show all feed items that have been liked anywhere by anyone" do
-      feed_item = FeedItem.create!
+      feed_item = FeedItem.create!(:likes => 2)
       get :global
       assigns(:feed_items).should == [feed_item]
     end

@@ -6,7 +6,7 @@ class FeedItem < ActiveRecord::Base
     lng_min = lng - TWO_MILES
     lng_max = lng + TWO_MILES
     feed_items = FeedItem.where("lat >= ? AND lat <= ? AND lng >= ? AND lng <= ? AND created_at > ?", lat_min, lat_max, lng_min, lng_max, Date.today - 1.week)
-    feed_items.sort{|a,b| b.created_at <=> a.created_at }
+    feed_items.where("likes > 0").sort{|a,b| b.created_at <=> a.created_at }
   end
 
   def self.twitter_nearby(lat, lng)
