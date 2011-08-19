@@ -9,7 +9,7 @@
 - if(feed_item.id)
   - if feed_item.likes == 1
     #like-count== #{feed_item.likes} like
-  -else 
+  -elsif feed_item.likes > 1
     #like-count== #{feed_item.likes} likes
 
 
