@@ -79,4 +79,12 @@ describe FeedItemsController do
 
   end
 
+  describe "show" do
+    it "loads the single feed item" do
+      feed_item = FeedItem.create!
+      get :show, :id => feed_item.id
+      assigns(:feed_item).should == feed_item
+    end
+  end
+
 end

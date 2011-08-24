@@ -64,7 +64,7 @@ class FeedItemsController < ApplicationController
         feed_items = (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
         max_items = @mobile_request ? 19 : 49
         @feed_items = feed_items[0..max_items].shuffle
-        @feed_items.map!{|item| item.is_a?(FeedItem) ? item : FeedItem.create(item)  }
+        @feed_items.map!{|item| item.is_a?(FeedItem) ? item : FeedItem.create!(item)  }
         @feed_items = favorite_feed_items + @feed_items
         render partial: "index", locals: {feed_items: @feed_items}, layout: false
       end
@@ -146,5 +146,9 @@ class FeedItemsController < ApplicationController
   end
   def global
     @feed_items = FeedItem.order("created_at desc").where("likes > 0").all  
+  end
+  
+  def show
+    @feed_item = FeedItem.find(params[:id])
   end
 end

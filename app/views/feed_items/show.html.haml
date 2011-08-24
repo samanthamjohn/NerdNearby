@@ -1,0 +1,21 @@
+%a{href: root_path}
+  .logo
+    %h1
+      = 'nerd <span class="green">[</span>nearby</span><span class="green">]</span>'.html_safe
+    = image_tag 'glasses.png'
+    %h2 See everything going on around you.
+
+
+.welcome.feed-items
+  .instagrams
+    %ul
+
+      - if(@feed_item["feed_item_type"] == "tweet")
+        = render partial: "tweets/tweet_detail", locals: {tweet: @feed_item}
+      - elsif(@feed_item[:feed_item_type] == 'instagram')
+        = render partial: "instagrams/instagram_detail", locals: {instagram: @feed_item}
+      - elsif(@feed_item[:feed_item_type] == 'foursquare')
+        = render partial: "foursquare/foursquare_detail", locals: {tip: @feed_item}
+      - elsif(@feed_item[:feed_item_type] == 'flickr')
+        = render partial: "flickr/flickr_detail", locals: {instagram: @feed_item}
+

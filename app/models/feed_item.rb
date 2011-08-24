@@ -27,7 +27,7 @@ class FeedItem < ActiveRecord::Base
         feed_item_type: "tweet"
       }
     end
-    tweets.map {|tweet| FeedItem.new(tweet) }
+    tweets.map {|tweet| FeedItem.create!(tweet) }
   end
 
   def as_json(options={})
