@@ -77,8 +77,8 @@ class FeedItemsController < ApplicationController
         render partial: "index", locals: {feed_items: @feed_items}, layout: false
       end
       format.json do
-        feed_items = favorite_feed_items + (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
-        feed_items.map!{|item| item.is_a?(FeedItem) ? item : FeedItem.new(item)  }
+        feed_items = favorite_feed_items + (instagrams + flickr_pictures + tweets + foursquare_venues).shuffle
+        feed_items.map!{ |item| item.is_a?(FeedItem) ? item : FeedItem.create!(item) }
         render json: feed_items
       end
     end
