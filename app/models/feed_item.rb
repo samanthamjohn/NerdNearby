@@ -1,5 +1,6 @@
 class FeedItem < ActiveRecord::Base
   TWO_MILES = 0.028
+  before_save :add_name
   def self.saved_nearby(lat, lng)
     lat_min = lat - TWO_MILES
     lat_max = lat + TWO_MILES
@@ -27,9 +28,9 @@ class FeedItem < ActiveRecord::Base
         feed_item_type: "tweet"
       }
     end
-    tweets.map {|item|    
+    tweets.map {|item|
       feed_item = FeedItem.where({:feed_item_type => item[:feed_item_type], :type_id => item[:type_id]}).first
-      feed_item || FeedItem.create!(item)    
+      feed_item || FeedItem.create!(item)
     }
   end
 
@@ -38,12 +39,12 @@ class FeedItem < ActiveRecord::Base
   end
 
   def self.foursquare_nearby(lat, lng)
-    
+
     foursquare_venues = []
     venues = foursquare_api(ll: "#{lat}, #{lng}", limit: 50)
     venues = venues.sort {|a,b| a.json["hereNow"]["count"] <=> b.json["hereNow"]["count"]}.reverse
-    venues.map do |venue| 
-      
+    venues.map do |venue|
+
       foursquare_venues.push({
         type_id: venue.json["id"],
         name: venue.json["name"],
@@ -57,9 +58,17 @@ class FeedItem < ActiveRecord::Base
     foursquare_venues ||= []
     foursquare_venues[0..10]
   end
-  
+
   def self.foursquare_api(options={})
     foursquare = Foursquare::Base.new(ENV["FOURSQUARE_CLIENT_ID"], ENV["FOURSQUARE_CLIENT_SECRET"])
     foursquare.venues.nearby options
   end
+
+
+  private
+
+  def add_name
+    self.name = "#{self.feed_item_type} post" unless self.name
+  end
+
 end
