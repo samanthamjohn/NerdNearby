@@ -90,7 +90,7 @@ class FeedItemsController < ApplicationController
 
   def update
     @feed_item = FeedItem.find(params[:id])
-    feed_item_params = params[:feed_item].merge(likes: @feed_item.likes + 1)
+    feed_item_params = params[:feed_item].merge(likes: @feed_item.likes||0 + 1)
     @feed_item.update_attributes(feed_item_params)
     respond_with @feed_item
   end
