@@ -12,6 +12,17 @@ describe FeedItemsController do
       get :index, :lat => 1, :lng => 2    
       assigns(:feed_items).should==[liked_feed_item]
     end
+    
+    it "does not create multiple entries of the same item into the database" do
+      FeedItem.create(:feed_item_type => "instagram", "type_id" => "AA")
+      controller.stubs(:call_foursquare).returns([])
+      controller.stubs(:call_instagram).returns([{:feed_item_type => "instagram", :type_id => "AA"}])
+      controller.stubs(:call_flickr).returns([])
+      controller.stubs(:call_twitter).returns([])
+      get :index, :lat => 1, :lng => 2
+      FeedItem.where("type_id" => "AA").count.should == 1
+    end
+    
     describe "#call_twitter" do
       before do
         controller.stubs(:call_foursquare).returns([])

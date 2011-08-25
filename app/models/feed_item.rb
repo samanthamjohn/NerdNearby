@@ -27,7 +27,10 @@ class FeedItem < ActiveRecord::Base
         feed_item_type: "tweet"
       }
     end
-    tweets.map {|tweet| FeedItem.create!(tweet) }
+    tweets.map {|item|    
+      feed_item = FeedItem.where({:feed_item_type => item[:feed_item_type], :type_id => item[:type_id]}).first
+      feed_item || FeedItem.create!(item)    
+    }
   end
 
   def as_json(options={})
