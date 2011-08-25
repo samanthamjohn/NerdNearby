@@ -5,12 +5,13 @@ class FeedItemsController < ApplicationController
   respond_to :html, :json
 
   def index
+
     begin
       tweets_thread = Thread.new{ call_twitter}
     rescue
       puts "twitter thread down"
     end
-    
+
     begin
       foursquare_thread = Thread.new{ call_foursquare }
     rescue
@@ -21,7 +22,7 @@ class FeedItemsController < ApplicationController
       flickr_thread = Thread.new{ call_flickr }
     rescue
       puts 'flickr thread down'
-    end  
+    end
 
     begin
       instagram_thread = Thread.new{ call_instagram }
@@ -39,7 +40,7 @@ class FeedItemsController < ApplicationController
     end
 
     begin
-      foursquare_venues = foursquare_thread.value 
+      foursquare_venues = foursquare_thread.value
     rescue
       puts "foursquare unavailable"
       foursquare_venues = []
@@ -64,15 +65,15 @@ class FeedItemsController < ApplicationController
         feed_items = (instagrams + flickr_pictures + tweets + foursquare_venues).sort{|a, b| b[:time] <=> a[:time] }
         max_items = @mobile_request ? 19 : 49
         @feed_items = feed_items[0..max_items].shuffle
-        @feed_items.map!{|item| 
-          if item.is_a?(FeedItem) 
-            item  
+        @feed_items.map!{|item|
+          if item.is_a?(FeedItem)
+            item
           else
             feed_item = FeedItem.where({:feed_item_type => item[:feed_item_type], :type_id => item[:type_id]}).first
-            feed_item || FeedItem.create!(item)  
+            feed_item || FeedItem.create!(item)
           end
           }
-      
+
         @feed_items = favorite_feed_items + @feed_items
         render partial: "index", locals: {feed_items: @feed_items}, layout: false
       end
@@ -150,16 +151,16 @@ class FeedItemsController < ApplicationController
       }
     end
     flickr_pictures ||= []
-    flickr_pictures[0..19]  
+    flickr_pictures[0..19]
   end
   def global
-    @feed_items = FeedItem.order("created_at desc").where("likes > 0").all  
+    @feed_items = FeedItem.order("created_at desc").where("likes > 0").all
   end
-  
+
   def show
     @feed_item = FeedItem.find(params[:id])
   end
-  
-  
-  
+
+
+
 end
